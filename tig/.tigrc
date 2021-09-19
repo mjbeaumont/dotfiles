@@ -1,0 +1,2 @@
+bind pager D !?>sh -c 'echo %(text) | xargs git branch -D'
+bind pager C @<sh -c 'echo %(text) | xargs git checkout'
