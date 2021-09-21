@@ -4,6 +4,7 @@ alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
 # Space navigation
 lctrl + cmd - h : yabai -m space --focus prev
 lctrl + cmd - l : yabai -m space --focus next
+lctrl + cmd - o : yabai -m space --focus recent
 lctrl + cmd - j : yabai -m window --focus stack.next
 lctrl + cmd - k : yabai -m window --focus stack.prev
 rshift + rcmd - 1 : yabai -m space --focus comms
