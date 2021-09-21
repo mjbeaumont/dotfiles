@@ -23,7 +23,7 @@ spacebar -m config text_font            "MesloLGS NF:Regular:13.0"
 spacebar -m config icon_font            "MesloLGS NF:Regular:13.0"
 spacebar -m config right_shell          on
 spacebar -m config right_shell_command  "whoami"
-spacebar -m config right_shell_icon     
+spacebar -m config right_shell_icon     👤	  
 spacebar -m config right_shell_icon_color 0xffebdbb2
 spacebar -m config background_color     0xff282828
 spacebar -m config foreground_color     0xffebdbb2
@@ -32,11 +32,11 @@ spacebar -m config power_icon_color     0xffcd950c
 spacebar -m config battery_icon_color   0xffd75f5f
 spacebar -m config dnd_icon_color       0xff83a598
 spacebar -m config clock_icon_color     0xffebdbb2
-spacebar -m config power_icon_strip      
+spacebar -m config power_icon_strip     🔋
 spacebar -m config space_icon_strip     Comms Terminal Web Code V VI VII VIII IX X
-spacebar -m config space_icon           
-spacebar -m config clock_icon           
-spacebar -m config dnd_icon             
+spacebar -m config space_icon           
+spacebar -m config clock_icon           🕑 
+spacebar -m config dnd_icon             
 spacebar -m config clock_format         "%m/%d/%y %R"
 
 echo "spacebar configuration loaded.."
