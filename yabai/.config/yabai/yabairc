@@ -53,6 +53,7 @@ yabai -m rule --add app="^Code" space=code
 yabai -m rule --add app="^Iterm" space=terminal
 yabai -m rule --add app="^Slack" space=comms
 yabai -m rule --add app="^Spotify$" space=comms
+yabai -m rule --add app="^zoom\." space=comms
 # yabai -m rule --add app="^Mail$" space=mail
 # yabai -m rule --add app="^Safari$" space=web
 # yabai -m rule --add app="^Notes$" space=notes
