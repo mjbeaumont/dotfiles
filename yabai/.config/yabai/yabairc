@@ -52,12 +52,12 @@ yabai -m space 4 --label code
 yabai -m rule --add app="^Code" space=code
 yabai -m rule --add app="^Iterm" space=terminal
 yabai -m rule --add app="^Slack" space=comms
+yabai -m rule --add app="^Spotify$" space=comms
 # yabai -m rule --add app="^Mail$" space=mail
 # yabai -m rule --add app="^Safari$" space=web
 # yabai -m rule --add app="^Notes$" space=notes
 # yabai -m rule --add app="^ida64$" space=re
 # yabai -m rule --add app="^Transmission$" space=media
-# yabai -m rule --add app="^Spotify$" space=media
 # yabai -m rule --add app="^Discord$" space=social grid=1:1:0:0:1:1 manage=off
 # yabai -m rule --add app="^Steam$" space=games manage=off
 # yabai -m rule --add app="^System Preferences$" manage=off

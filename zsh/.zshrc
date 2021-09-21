@@ -117,7 +117,7 @@ kill_port() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias l=ls -la
-alias mkdir="mddir -p"
+alias mkdir="mkdir -p"
 alias apifix="sed -i '' 's/\.95/\.65/g' src/lib/product-combination.js; sed -i '' 's/1\.05/1\.25/g' src/lib/product-combination.js;"
 alias apiunfix="sed -i '' 's/\.65/\.95/g' src/lib/product-combination.js; sed -i '' 's/1\.25/1\.05/g' src/lib/product-combination.js"
 alias reload_db="~/reload_db.sh"
