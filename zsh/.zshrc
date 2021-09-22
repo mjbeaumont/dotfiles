@@ -123,6 +123,9 @@ alias reload_db="~/reload_db.sh"
 alias test_stripe_webhooks="~/test_stripe_webhooks.sh"
 alias restart_nodemon="lsof -it tcp:9229 | xargs kill -9"
 alias vimc="nvim ~/.config/nvim/init.vim"
+alias bsrestart="brew services restart"
+alias bsstart="brew services start"
+alias bsstop="brew services stop"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
