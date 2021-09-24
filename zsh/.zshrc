@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/Library/Python/2.7/bin:$PATH
+export PATH=$HOME/bin/:/usr/local/bin:$HOME/Library/Python/2.7/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 export TZ=UTC
 . "/usr/local/opt/nvm/nvm.sh"
@@ -108,6 +108,14 @@ kill_port() {
   lsof -ti tcp:$1 | xargs kill -9
 }
 
+gcfz() {
+ git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
+
+gdfz() {
+ git branch -D $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -126,6 +134,10 @@ alias vimc="nvim ~/.config/nvim/init.vim"
 alias bsrestart="brew services restart"
 alias bsstart="brew services start"
 alias bsstop="brew services stop"
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -133,4 +145,6 @@ bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
+bindkey -s ^f "tmux-sessionizer\n"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
