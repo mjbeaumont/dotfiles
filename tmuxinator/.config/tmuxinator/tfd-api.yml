@@ -1,0 +1,17 @@
+name: tfd-api
+root: ~/Code/TFD/api
+
+on_project_stop:
+  - docker-compose down postgres
+  - killall nodemon
+
+windows:
+  - server:
+      layout: main-horizontal
+      panes:
+        - start_database:
+          - docker-compose up postgres
+        - start_server:
+          - npm run start-dev
+  - git: gcm
+  - tests: npm run test-jest -- --watch
