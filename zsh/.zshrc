@@ -116,6 +116,7 @@ gdfz() {
  git branch -D $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
 }
 
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -134,10 +135,12 @@ alias vimc="nvim ~/.config/nvim/init.vim"
 alias bsrestart="brew services restart"
 alias bsstart="brew services start"
 alias bsstop="brew services stop"
+alias gafz="git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
 alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
+alias tx="tmuxinator"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
