@@ -32,3 +32,9 @@ vnoremap <Leader>p "_dP
 
 set relativenumber
 set clipboard=unnamedplus
+set tabstop=8
+set expandtab
+set shiftwidth=4  
+set autoindent   
+set smartindent 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
