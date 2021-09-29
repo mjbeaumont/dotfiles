@@ -1,0 +1,8 @@
+name: tfd-website
+root: ~/Code/TFD/website
+
+windows:
+  - server: yarn website run develop
+  - git: 
+    -
+  - tests: yarn website run test --watch
