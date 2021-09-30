@@ -31,12 +31,10 @@ rshift + rcmd - 3 : yabai -m space --focus web
 rshift + rcmd - 4 : yabai -m space --focus code
 
 # Move focus container to workspace
-lctrl + alt - h : yabai -m window --space prev; yabai -m space --focus prev
-lctrl + alt - l : yabai -m window --space next; yabai -m space --focus next
-rshift + alt - 1 : yabai -m window --space 1; yabai -m space --focus comms
-rshift + alt - 2 : yabai -m window --space 2; yabai -m space --focus terminal
-rshift + alt - 3 : yabai -m window --space 3; yabai -m space --focus web
-rshift + alt - 4 : yabai -m window --space 4; yabai -m space --focus code
+lctrl + lcmd - 1 : yabai -m window --space 1; yabai -m space --focus comms
+lctrl + lcmd - 2 : yabai -m window --space 2; yabai -m space --focus terminal
+lctrl + lcmd - 3 : yabai -m window --space 3; yabai -m space --focus web
+lctrl + lcmd - 4 : yabai -m window --space 4; yabai -m space --focus code
 
 # Move focus space to display
 #lctrl + lcmd - 1 : yabai -m space --display 1
