@@ -1,0 +1,9 @@
+name: tfd-corgi
+root: ~/Code/TFD/corgi
+
+windows:
+  - server: yarn start
+  - git: 
+    -
+  - tests: 
+    -
