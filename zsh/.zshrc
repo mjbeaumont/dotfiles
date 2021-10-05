@@ -2,6 +2,8 @@
 export PATH=$HOME/bin/:/usr/local/bin:$HOME/Library/Python/2.7/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 export TZ=UTC
+export FZF_CTRL_T_COMMAND='ag -l --nocolor --hidden  -g ""'
+export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden  -g ""'
 . "/usr/local/opt/nvm/nvm.sh"
 
 #Path to your oh-my-zsh installation.
@@ -125,6 +127,7 @@ gdfz() {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=nvim
 alias l=ls -la
 alias apifix="sed -i '' 's/\.95/\.65/g' src/lib/product-combination.js; sed -i '' 's/1\.05/1\.25/g' src/lib/product-combination.js;"
 alias apiunfix="sed -i '' 's/\.65/\.95/g' src/lib/product-combination.js; sed -i '' 's/1\.25/1\.05/g' src/lib/product-combination.js"
