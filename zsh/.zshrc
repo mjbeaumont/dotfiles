@@ -9,6 +9,8 @@ export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden  -g ""'
 #Path to your oh-my-zsh installation.
 export ZSH="/Users/matthewbeaumont/.oh-my-zsh"
 
+DISABLE_MAGIC_FUNCTIONS=true
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -76,12 +78,9 @@ ZSH_DISABLE_COMPFIX="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+        zsh-autosuggestions
 	git 
-	autojump
 	zsh-syntax-highlighting
-        npm
-        sudo
-	node
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+# intialize zoxide
+eval "$(zoxide init zsh --cmd j)"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -144,8 +145,6 @@ alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
 alias tx="tmuxinator"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
