@@ -5,4 +5,5 @@ windows:
   - server: yarn website run develop
   - git: 
     -
-  - tests: yarn website run test --watch
+  - tests:
+    -
