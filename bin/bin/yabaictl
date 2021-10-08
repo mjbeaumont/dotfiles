@@ -15,6 +15,8 @@ setups = {
     ],
 }
 
+wanted_labels = ["tools", "terminal", "web", "code",]
+
 ignore_messages = [
     "acting space is already located on the given display.",
     "cannot focus an already focused space.",
@@ -111,21 +113,16 @@ class WindowManager:
         if self.num_spaces < self.NUM_SPACES:
             for i in range(self.num_spaces, self.NUM_SPACES):
                 yabai_message("space", "--create")
-        elif self.num_spaces > self.NUM_SPACES:
-            for i in range(self.NUM_SPACES, self.num_spaces):
-                yabai_message("space", "--destroy", f"{i}")
 
     def ensure_labels(self):
-        wanted_labels = set(f"s{i}" for i in range(1, self.NUM_SPACES + 1))
-        existing_labels = set(space["label"] for space in self.spaces)
-
-        for ix, missing_label in enumerate(sorted(wanted_labels - existing_labels)):
+        for i in range(self.NUM_SPACES):
             yabai_message(
                 "space",
-                f"{self.unlabled_spaces[ix]['index']}",
+                f"{i+1}",
                 "--label",
-                missing_label,
+                f"{wanted_labels[i]}"
             )
+
 
     def reorganize_spaces(self):
         focused_spaces = self.visible_spaces
@@ -142,8 +139,8 @@ class WindowManager:
         self.ensure_spaces()
         self.refresh_state()
 
-         #self.ensure_labels()
-         #self.refresh_state()
+        self.ensure_labels()
+        self.refresh_state()
  #
          #self.reorganize_spaces()
  #
