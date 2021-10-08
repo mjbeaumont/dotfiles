@@ -28,7 +28,7 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                0
 
 # mission-control desktop labels
-yabai -m space 1 --label comms
+yabai -m space 1 --label tools
 yabai -m space 2 --label terminal
 yabai -m space 3 --label web
 yabai -m space 4 --label code
@@ -37,9 +37,9 @@ yabai -m space 4 --label code
 yabai -m rule --add app="^Code" space=code
 yabai -m rule --add app="^Iterm" space=terminal
 yabai -m rule --add app="^Google Chrome" space=web
-yabai -m rule --add app="^Slack" space=comms
-yabai -m rule --add app="^Spotify$" space=comms
-yabai -m rule --add app="^zoom\." space=comms
+yabai -m rule --add app="^Slack" space=tools
+yabai -m rule --add app="^Spotify$" space=tools
+yabai -m rule --add app="^zoom\." space=tools
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 
@@ -48,5 +48,4 @@ yabai -m signal --add event=window_destroyed active=yes action="yabai -m query -
 yabai -m signal --add event=window_destroyed action="echo \"destroyed window with id \$YABAI_WINDOW_ID\""
 yabai -m signal --add event=space_changed action="echo \"changed space \$YABAI_RECENT_SPACE_ID -> \$YABAI_SPACE_ID\""
 yabai -m signal --add event=space_changed action="yabai -m window --focus mouse || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
-
 echo "yabai configuration loaded.."n
