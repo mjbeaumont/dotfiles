@@ -56,3 +56,5 @@ nnoremap L $
 
 vnoremap <Leader>p "_dP
 
+set ignorecase
+set smartcase
