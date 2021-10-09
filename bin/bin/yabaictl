@@ -1,10 +1,9 @@
 #!/usr/local/bin/python3
 import json
 import subprocess
+import math
 
 import click
-
-# these are used to determine display order
 setups = {
     "home": [
         "88908F05-559E-DA24-9B5C-FE345483E536",
@@ -62,10 +61,6 @@ class WindowManager:
         return len(self.spaces)
 
     @property
-    def unlabled_spaces(self):
-        return [space for space in self.spaces if space["label"] == ""]
-
-    @property
     def visible_spaces(self):
         return [space for space in self.spaces if space["visible"] > 0]
 
@@ -80,7 +75,7 @@ class WindowManager:
             print("unidentified setup")
 
     def find_display_index(self, display):
-        uuid = self.display_order[display]
+        uuid = self.display_order[display - 1]
 
         return next(
             display["index"] for display in self.displays if display["uuid"] == uuid
@@ -92,22 +87,23 @@ class WindowManager:
         )
 
     def get_display_for_space(self, space):
-        return space % self.num_displays - 1
+        spaces_per_display = math.floor(self.num_spaces / self.num_displays)
+        return math.ceil(space / spaces_per_display)
 
     def focus_space(self, space):
         yabai_message("space", "--focus", f"s{space}")
 
     def move_space_to_display(self, space, display):
         display_index = self.find_display_index(display)
-
+ 
         yabai_message(
-            "space", f"s{space}", "--display", f"{display_index}",
+            "space", f"{wanted_labels[space - 1]}", "--display", f"{display_index}",
         )
 
     def remove_unnecessary_spaces(self):
         if self.num_spaces > self.NUM_SPACES:
-            for unlabled_space in self.unlabled_spaces:
-                yabai_message("space", f"{unlabled_space['index']}", "--destroy")
+            for i in range(self.NUM_SPACES, self.num_spaces):
+                yabai_message("space", f"{i}", "--destroy")
 
     def ensure_spaces(self):
         if self.num_spaces < self.NUM_SPACES:
@@ -115,14 +111,13 @@ class WindowManager:
                 yabai_message("space", "--create")
 
     def ensure_labels(self):
-        for i in range(self.NUM_SPACES):
+        for i in range(self.num_spaces):
             yabai_message(
                 "space",
                 f"{i+1}",
                 "--label",
                 f"{wanted_labels[i]}"
             )
-
 
     def reorganize_spaces(self):
         focused_spaces = self.visible_spaces
@@ -132,20 +127,18 @@ class WindowManager:
                 space_index, self.get_display_for_space(space_index),
             )
 
-        for space in focused_spaces[: min(self.num_displays, len(focused_spaces))]:
-            self.focus_space(space["label"].strip("s"))
-
     def update_spaces(self):
         self.ensure_spaces()
         self.refresh_state()
 
+        self.remove_unnecessary_spaces()
+        self.refresh_state()
+ 
         self.ensure_labels()
         self.refresh_state()
- #
-         #self.reorganize_spaces()
- #
-         #self.remove_unnecessary_spaces()
-         #self.refresh_state()
+
+        self.reorganize_spaces()
+ 
 
 
 @click.group()
