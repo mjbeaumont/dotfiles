@@ -87,7 +87,7 @@ class WindowManager:
         )
 
     def get_display_for_space(self, space):
-        spaces_per_display = math.floor(self.num_spaces / self.num_displays)
+        spaces_per_display = math.ceil(self.num_spaces / self.num_displays)
         return math.ceil(space / spaces_per_display)
 
     def focus_space(self, space):
