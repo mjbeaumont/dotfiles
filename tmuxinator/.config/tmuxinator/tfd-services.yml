@@ -1,0 +1,15 @@
+name: tfd-services
+root: ~/Code/TFD/services
+
+on_project_stop:
+  - docker-compose down postgres
+  - killall nodemon
+
+windows:
+  - server:
+    -
+  - git: 
+    -
+  - tests: 
+    -
+ 
