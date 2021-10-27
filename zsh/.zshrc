@@ -99,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+EDITOR=nvim
+
 # intialize zoxide
 eval "$(zoxide init zsh --cmd j)"
 # Compilation flags
@@ -151,5 +153,11 @@ bindkey "\e\e[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 bindkey -s ^f "tmux-sessionizer\n"
+
+bindkey "^ " autosuggest-accept
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\033' edit-command-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
