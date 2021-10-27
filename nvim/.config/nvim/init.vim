@@ -22,8 +22,10 @@ call plug#begin("~/.vim/plugged")
   Plug 'vim-scripts/argtextobj.vim'
   Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
   Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as' : 'vsc-easymotion'})
+  Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
   Plug 'justinmk/vim-sneak'
   Plug 'tpope/vim-surround'
+  Plug 'gerw/vim-HiLinkTrace'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-abolish'
   Plug 'othree/xml.vim'
@@ -43,10 +45,26 @@ else
     set shiftwidth=4  
     set autoindent   
     set smartindent 
+    set hidden
+    set termguicolors
+    set background=dark
+    set nohlsearch
+    set undodir=~/.vim/undodir
+    
+    syntax on
+    colorscheme one
+    " Airline
+    " let g:airline_theme = "palenight"
+    let g:palenight_terminal_italics=1
+
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif 
 
 nmap s <Plug>(easymotion-s2)
+
+map <C-J> :bprev<CR>
+map <C-K> :bnext<CR>
 
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
@@ -55,6 +73,11 @@ nnoremap H ^
 nnoremap L $
 
 vnoremap <Leader>p "_dP
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 
 set ignorecase
 set smartcase
