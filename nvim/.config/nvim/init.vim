@@ -18,17 +18,19 @@ let mapleader="\<Space>"
 
 call plug#begin("~/.vim/plugged")
   " Plugin Section
-  Plug 'kana/vim-textobj-user'
-  Plug 'vim-scripts/argtextobj.vim'
-  Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
   Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as' : 'vsc-easymotion'})
-  Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
-  Plug 'justinmk/vim-sneak'
-  Plug 'tpope/vim-surround'
+  Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
   Plug 'gerw/vim-HiLinkTrace'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-abolish'
+  Plug 'justinmk/vim-sneak'
+  Plug 'kana/vim-textobj-user'
   Plug 'othree/xml.vim'
+  Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-scripts/argtextobj.vim'
+  Plug 'w0rp/ale'
   Plug 'wellle/targets.vim'
 call plug#end()
 " Better Navigation
@@ -58,6 +60,9 @@ else
     let g:palenight_terminal_italics=1
 
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let g:ale_linters = {
+      \   'javascript': ['eslint'],
+    \}
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif 
 
