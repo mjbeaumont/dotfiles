@@ -3,7 +3,7 @@ root: ~/Code/TFD/api
 
 on_project_stop:
   - docker-compose down postgres
-  - killall nodemon
+  - kill_port 5000
 
 windows:
   - server:
@@ -13,7 +13,8 @@ windows:
           - docker-compose up postgres
         - start_server:
           - npm run start-dev
-  - git: gcm
+  - git: 
+    -
   - tests: 
     -
  
