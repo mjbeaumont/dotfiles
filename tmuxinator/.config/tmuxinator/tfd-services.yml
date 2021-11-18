@@ -1,11 +1,14 @@
 name: tfd-services
 root: ~/Code/TFD/services
 
+pre_window: nvm use
+
 on_project_stop:
   - docker-compose down
 
 windows:
-  - server: pnpm --filter leads-tosa develop
+  - server: 
+    - pnpm --filter leads-tosa develop
   - git: 
     -
   - tests: 

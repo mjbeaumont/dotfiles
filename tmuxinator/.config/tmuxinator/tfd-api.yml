@@ -1,6 +1,8 @@
 name: tfd-api
 root: ~/Code/TFD/api
 
+pre_window: nvm use
+
 on_project_stop:
   - docker-compose down postgres
   - kill_port 5000
