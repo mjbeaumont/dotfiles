@@ -1,3 +1,9 @@
 [submodule "hammerspoon/.hammerspoon/stackline"]
 	path = hammerspoon/.hammerspoon/stackline
 	url = https://github.com/AdamWagner/stackline.git
+[submodule "zsh/.config/zsh/plugins/zsh-autosuggestions"]
+	path = zsh/.config/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
