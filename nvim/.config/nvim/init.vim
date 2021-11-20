@@ -26,7 +26,6 @@ call plug#begin("~/.vim/plugged")
   Plug 'othree/xml.vim'
   Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
   Plug 'tpope/vim-abolish'
-  Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/argtextobj.vim'
