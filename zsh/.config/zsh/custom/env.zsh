@@ -9,3 +9,4 @@ export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden  -g ""'
 export ZSH="/Users/matthewbeaumont/.oh-my-zsh"
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
+export TERM=xterm-256color
