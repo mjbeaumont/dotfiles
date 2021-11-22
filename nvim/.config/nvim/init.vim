@@ -86,3 +86,4 @@ vnoremap K :m '<-2<CR>gv=gv
 
 set ignorecase
 set smartcase
+set timeoutlen=1000 ttimeoutlen=0
