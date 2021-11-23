@@ -5,8 +5,6 @@ export FZF_CTRL_T_COMMAND='ag -l --nocolor --hidden  -g ""'
 export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden  -g ""'
 . "/usr/local/opt/nvm/nvm.sh"
 
-#Path to your oh-my-zsh installation.
-export ZSH="/Users/matthewbeaumont/.oh-my-zsh"
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 export TERM=xterm-256color

@@ -7,6 +7,9 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=1
 
+#Path to your oh-my-zsh installation.
+export ZSH="/Users/matthewbeaumont/.oh-my-zsh"
+
 plugins=(
     ag
     docker  
