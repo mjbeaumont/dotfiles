@@ -1,0 +1,22 @@
+#!/bin/bash
+
+currentsession=$1
+apicolor="#007fff"
+servicescolor="#832561"
+websitecolor="#f9e64f"
+currentcolor="colour154"
+
+case $currentsession in 
+    tfd-services)
+        currentcolor=$servicescolor
+    ;;
+    tfd-website)
+        currentcolor=$websitecolor
+    ;;
+    tfd-api)
+        currentcolor=$apicolor
+    ;;
+esac
+
+#echo $currentsession
+echo "#[fg=colour232,bg=$currentcolor,nobold,nounderscore,noitalics] #{?client_prefix, ,} #S #[fg=$currentcolor,bg=colour238]"
