@@ -22,6 +22,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
   Plug 'gerw/vim-HiLinkTrace'
   Plug 'justinmk/vim-sneak'
+  Plug 'sheerun/vim-polyglot'
   Plug 'kana/vim-textobj-user'
   Plug 'othree/xml.vim'
   Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
@@ -40,7 +41,6 @@ if exists('g:vscode')
     xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
     set clipboard=unnamedplus
 else
-    nnoremap <C-n> :call NumberToggle()<CR>
     set relativenumber
     set tabstop=8
     set expandtab
@@ -83,7 +83,9 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+nnoremap <C-n> :call NumberToggle()<CR>
 
+nnoremap Q @q
 set ignorecase
 set smartcase
 set timeoutlen=1000 ttimeoutlen=0
