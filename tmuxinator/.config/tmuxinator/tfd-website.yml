@@ -1,8 +1,10 @@
 name: tfd-website
 root: ~/Code/TFD/website
 
+pre_window: nvm use
+
 windows:
-  - server: yarn website run develop
+  - server: pnpm website run develop
   - git: 
     -
   - tests:
