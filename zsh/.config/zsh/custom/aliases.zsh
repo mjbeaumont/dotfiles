@@ -16,6 +16,7 @@ alias l=ls -la
 alias reload_db="~/reload_db.sh"
 alias restart_nodemon="lsof -it tcp:9229 | xargs kill -9"
 alias rz=". ~/.zshrc"
+alias tmux="tmux -2"
 alias t="tmux"
 alias ta="t a -t"
 alias test_stripe_webhooks="~/test_stripe_webhooks.sh"
