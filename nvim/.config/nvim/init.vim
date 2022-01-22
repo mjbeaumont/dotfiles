@@ -34,15 +34,10 @@ else
     set undodir=~/.vim/undodir
     
     syntax on
-    " Airline
-    " let g:airline_theme = "palenight"
-    let g:palenight_terminal_italics=1
+    colorscheme nightfox
 
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    let g:ale_linters = {
-      \   'javascript': ['eslint'],
-    \}
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif 
 
 nmap s <Plug>(easymotion-s2)
@@ -52,6 +47,8 @@ map <C-K> :bnext<CR>
 
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
+
+nnoremap <Leader>hl :TSHighlightCapturesUnderCursor<CR>
 
 nnoremap H ^
 nnoremap L $
@@ -71,3 +68,5 @@ set timeoutlen=1000 ttimeoutlen=0
 
 :lua require "modules/plugins"
 :lua require "modules/treesitter"
+" :lua require "modules/github-theme"
+:lua require "modules/nightfox"
