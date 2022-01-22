@@ -16,26 +16,6 @@ endfunction
 
 let mapleader="\<Space>"
 
-call plug#begin("~/.vim/plugged")
-  " Plugin Section
-  Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as' : 'vsc-easymotion'})
-  Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
-  Plug 'gerw/vim-HiLinkTrace'
-  Plug 'justinmk/vim-sneak'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'kana/vim-textobj-user'
-  Plug 'othree/xml.vim'
-  Plug 'rakr/vim-one', Cond(!exists('g:vscode'))
-  Plug 'tpope/vim-abolish'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-surround'
-  Plug 'vim-scripts/argtextobj.vim'
-  Plug 'w0rp/ale'
-  Plug 'wellle/targets.vim'
-call plug#end()
-" Better Navigation
-
 if exists('g:vscode')
     nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
     xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
@@ -54,7 +34,6 @@ else
     set undodir=~/.vim/undodir
     
     syntax on
-    colorscheme one
     " Airline
     " let g:airline_theme = "palenight"
     let g:palenight_terminal_italics=1
@@ -89,3 +68,6 @@ nnoremap Q @q
 set ignorecase
 set smartcase
 set timeoutlen=1000 ttimeoutlen=0
+
+:lua require "modules/plugins"
+:lua require "modules/treesitter"
