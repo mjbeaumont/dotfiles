@@ -74,5 +74,7 @@ set smartcase
 set timeoutlen=1000 ttimeoutlen=0
 
 :lua require "modules/plugins"
+:lua require "modules/treesitter"
 :lua require "modules/nightfox"
 :lua require "modules/telescope"
+:lua require "modules/bufferline"
