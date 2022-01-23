@@ -78,3 +78,5 @@ set timeoutlen=1000 ttimeoutlen=0
 :lua require "modules/nightfox"
 :lua require "modules/telescope"
 :lua require "modules/bufferline"
+:lua require "modules/alpha"
+:lua require "modules/projects"
