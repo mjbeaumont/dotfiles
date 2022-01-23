@@ -62,7 +62,8 @@ return packer.startup(function(use)
   use "wellle/targets.vim"
   use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
   use "ahmedkhalf/project.nvim" 
-  use { "goolord/alpha-nvim" }
+  use "goolord/alpha-nvim" 
+  use "moll/vim-bbye"
 
   -- Colorschemes
   use "EdenEast/nightfox.nvim"
