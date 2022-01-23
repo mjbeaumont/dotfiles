@@ -70,6 +70,11 @@ return packer.startup(function(use)
   -- LSP
 
   -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", cond = is_not_vscode }

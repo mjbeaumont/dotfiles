@@ -61,12 +61,18 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <C-n> :call NumberToggle()<CR>
 
+nnoremap <Leader>ff :lua require("telescope.builtin").find_files{ hidden = true }<CR>
+nnoremap <Leader>fg :lua require("telescope.builtin").live_grep()<CR>
+nnoremap <Leader>gs :lua require("telescope.builtin").git_status()<CR>
+nnoremap <Leader>gc :lua require("telescope.builtin").git_bcommits()<CR>
+nnoremap <Leader>gb :lua require("telescope.builtin").git_branches()<CR>
+nnoremap <Leader>ts :lua require("telescope.builtin").treesitter()<CR>
+
 nnoremap Q @q
 set ignorecase
 set smartcase
 set timeoutlen=1000 ttimeoutlen=0
 
 :lua require "modules/plugins"
-:lua require "modules/treesitter"
-" :lua require "modules/github-theme"
 :lua require "modules/nightfox"
+:lua require "modules/telescope"
