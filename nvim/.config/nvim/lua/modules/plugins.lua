@@ -60,7 +60,10 @@ return packer.startup(function(use)
   use "tpope/vim-repeat"
   use "tpope/vim-surround"
   use "wellle/targets.vim"
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  use "ahmedkhalf/project.nvim" 
+  use { "goolord/alpha-nvim" }
+
   -- Colorschemes
   use "EdenEast/nightfox.nvim"
   -- cmp plugins
