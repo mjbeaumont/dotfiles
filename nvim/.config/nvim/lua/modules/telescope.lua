@@ -28,13 +28,14 @@ telescope.setup{
   pickers = {
     -- Default configuration for builtin pickers goes here:
     find_files = {
+        hidden = true,
         file_ignore_patterns = {
           "%.png",
           "%.jpg",
           "%.webp",
           "node_modules",
           "*%.min%.*",
-          "dotbot",
+          ".git/",
         },
     },
   },

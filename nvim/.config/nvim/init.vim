@@ -14,6 +14,11 @@ function! NumberToggle()
     endif
 endfunction
 
+" Remember position of last edit and return on reopen
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 let mapleader="\<Space>"
 
 if exists('g:vscode')
@@ -61,12 +66,16 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <C-n> :call NumberToggle()<CR>
 
-nnoremap <Leader>ff :lua require("telescope.builtin").find_files{ hidden = true }<CR>
+nnoremap <Leader>ff :lua require("telescope.builtin").find_files()<CR>
 nnoremap <Leader>fg :lua require("telescope.builtin").live_grep()<CR>
 nnoremap <Leader>gs :lua require("telescope.builtin").git_status()<CR>
 nnoremap <Leader>gc :lua require("telescope.builtin").git_bcommits()<CR>
 nnoremap <Leader>gb :lua require("telescope.builtin").git_branches()<CR>
 nnoremap <Leader>ts :lua require("telescope.builtin").treesitter()<CR>
+
+nnoremap <Leader>w :Bdelete<CR>
+nnoremap <Leader>kw :bufdo :Bdelete<CR>
+nnoremap <Leader>q :qa!<CR>
 
 nnoremap Q @q
 set ignorecase
