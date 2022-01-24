@@ -39,8 +39,6 @@ else
     set undodir=~/.vim/undodir
     
     syntax on
-    colorscheme nightfox
-
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif 
@@ -84,7 +82,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 :lua require "modules/plugins"
 :lua require "modules/treesitter"
-:lua require "modules/nightfox"
+:lua require "modules/github_theme"
 :lua require "modules/telescope"
 :lua require "modules/bufferline"
 :lua require "modules/alpha"

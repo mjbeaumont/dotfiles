@@ -66,7 +66,9 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
 
   -- Colorschemes
-  use "EdenEast/nightfox.nvim"
+  -- use "EdenEast/nightfox.nvim"
+  use "projekt0n/github-nvim-theme"
+
   -- cmp plugins
 
   -- snippets
@@ -81,7 +83,7 @@ return packer.startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", cond = is_not_vscode }
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use { "nvim-treesitter/playground", cond = is_not_vscode }
   use { "nvim-treesitter/nvim-treesitter-textobjects", cond = is_not_vscode }
   use { "JoosepAlviste/nvim-ts-context-commentstring", cond = is_not_vscode }
