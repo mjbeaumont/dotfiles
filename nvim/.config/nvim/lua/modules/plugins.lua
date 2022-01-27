@@ -74,6 +74,10 @@ return packer.startup(function(use)
   -- snippets
 
   -- LSP
+  use "neovim/nvim-lspconfig"
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
+  use "b0o/schemastore.nvim"
+  use "folke/lua-dev.nvim"
 
   -- Telescope
   use {
