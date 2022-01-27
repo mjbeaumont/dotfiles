@@ -87,3 +87,4 @@ set timeoutlen=1000 ttimeoutlen=0
 :lua require "modules/bufferline"
 :lua require "modules/alpha"
 :lua require "modules/projects"
+:lua require "modules/lsp"
