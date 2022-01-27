@@ -6,4 +6,3 @@ export FZF_DEFAULT_COMMAND='ag -l --nocolor --hidden  -g ""'
 export TZ=America/New_York
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
-export TERM=xterm-256color
