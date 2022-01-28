@@ -72,9 +72,12 @@ nnoremap <Leader>gc :lua require("telescope.builtin").git_bcommits()<CR>
 nnoremap <Leader>gb :lua require("telescope.builtin").git_branches()<CR>
 nnoremap <Leader>ts :lua require("telescope.builtin").treesitter()<CR>
 
+nnoremap <Leader>a :Alpha<CR>
+
 nnoremap <Leader>w :Bdelete<CR>
 nnoremap <Leader>kw :bufdo :Bdelete<CR>
 nnoremap <Leader>q :qa!<CR>
+nnoremap <Leader>s :wa!<CR>
 
 nnoremap Q @q
 set ignorecase
@@ -89,3 +92,4 @@ set timeoutlen=1000 ttimeoutlen=0
 :lua require "modules/alpha"
 :lua require "modules/projects"
 :lua require "modules/lsp"
+:lua require "modules/nvim-cmp"
