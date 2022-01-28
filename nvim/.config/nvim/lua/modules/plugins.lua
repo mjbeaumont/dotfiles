@@ -70,7 +70,9 @@ return packer.startup(function(use)
         'nvim-lua/plenary.nvim'
       },
       config = function()
-          require('gitsigns').setup()
+          require('gitsigns').setup({
+            sign_priority = 100
+          })
       end
   }
   -- Colorschemes
