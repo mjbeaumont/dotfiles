@@ -37,7 +37,7 @@ else
     set background=dark
     set nohlsearch
     set undodir=~/.vim/undodir
-    set signcolumn=number
+    set signcolumn=auto:4
     
     syntax on
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
