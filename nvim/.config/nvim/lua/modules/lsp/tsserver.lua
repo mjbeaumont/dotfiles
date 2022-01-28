@@ -2,6 +2,8 @@ local ts_utils_settings = {
     -- debug = true,
     import_all_scan_buffers = 100,
     update_imports_on_move = true,
+    always_organize_imports = false,
+    auto_inlay_hints = false,
     -- filter out dumb module warning
     filter_out_diagnostics_by_code = { 80001 },
 }
@@ -20,6 +22,8 @@ M.setup = function(on_attach, capabilities)
               client.config.flags.allow_incremental_sync = true
             end
             client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+
             on_attach(client, bufnr)
 
             ts_utils.setup(ts_utils_settings)
