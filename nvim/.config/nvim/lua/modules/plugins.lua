@@ -64,7 +64,15 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim" 
   use "goolord/alpha-nvim" 
   use "moll/vim-bbye"
-
+  use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = function()
+          require('gitsigns').setup()
+      end
+  }
   -- Colorschemes
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
