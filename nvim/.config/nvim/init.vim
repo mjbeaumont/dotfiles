@@ -67,12 +67,14 @@ nnoremap <C-n> :call NumberToggle()<CR>
 
 nnoremap <Leader>ff :lua require("telescope.builtin").find_files()<CR>
 nnoremap <Leader>fg :lua require("telescope.builtin").live_grep()<CR>
+nnoremap <Leader>fs :lua require("telescope.builtin").treesitter()<CR>
 nnoremap <Leader>gs :lua require("telescope.builtin").git_status()<CR>
 nnoremap <Leader>gc :lua require("telescope.builtin").git_bcommits()<CR>
 nnoremap <Leader>gb :lua require("telescope.builtin").git_branches()<CR>
-nnoremap <Leader>ts :lua require("telescope.builtin").treesitter()<CR>
 
 nnoremap <Leader>a :Alpha<CR>
+
+nnoremap <Leader>b :NvimTreeToggle<CR>
 
 nnoremap <Leader>w :Bdelete<CR>
 nnoremap <Leader>kw :bufdo :Bdelete<CR>
@@ -93,3 +95,4 @@ set timeoutlen=1000 ttimeoutlen=0
 :lua require "modules/projects"
 :lua require "modules/lsp"
 :lua require "modules/nvim-cmp"
+:lua require "modules/nvim-tree"
