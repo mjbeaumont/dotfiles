@@ -44,48 +44,14 @@ else
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif 
 
-nmap s <Plug>(easymotion-s2)
-
-map <C-J> :bprev<CR>
-map <C-K> :bnext<CR>
-
-nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
-nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
-
-nnoremap <Leader>hl :TSHighlightCapturesUnderCursor<CR>
-
-nnoremap H ^
-nnoremap L $
-
-vnoremap <Leader>p "_dP
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-nnoremap <C-n> :call NumberToggle()<CR>
-
-nnoremap <Leader>ff :lua require("telescope.builtin").find_files()<CR>
-nnoremap <Leader>fg :lua require("telescope.builtin").live_grep()<CR>
-nnoremap <Leader>fs :lua require("telescope.builtin").treesitter()<CR>
-nnoremap <Leader>gs :lua require("telescope.builtin").git_status()<CR>
-nnoremap <Leader>gc :lua require("telescope.builtin").git_bcommits()<CR>
-nnoremap <Leader>gb :lua require("telescope.builtin").git_branches()<CR>
-
-nnoremap <Leader>a :Alpha<CR>
-
-nnoremap <Leader>b :NvimTreeToggle<CR>
-
-nnoremap <Leader>w :Bdelete<CR>
-nnoremap <Leader>kw :bufdo :Bdelete<CR>
-nnoremap <Leader>q :qa!<CR>
-nnoremap <Leader>s :wa!<CR>
-
-nnoremap Q @q
 set ignorecase
 set smartcase
 set timeoutlen=1000 ttimeoutlen=0
 
+nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
+nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
+
+:lua require "modules/keymaps"
 :lua require "modules/plugins"
 :lua require "modules/treesitter"
 :lua require "modules/github_theme"
