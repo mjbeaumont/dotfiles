@@ -15,6 +15,10 @@ function! NumberToggle()
 endfunction
 
 let mapleader="\<Space>"
+nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
+xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
+
+set clipboard=unnamedplus
 
 call plug#begin("~/.vim/plugged")
   " Plugin Section

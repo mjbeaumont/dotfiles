@@ -5,7 +5,7 @@ set_km("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-function ToggleNumber()
+function _G.ToggleNumber()
   if vim.wo.nu == true then
       vim.wo.nu = false
       vim.wo.relativenumber = true
@@ -15,6 +15,15 @@ function ToggleNumber()
   end
 end
 
+function _G.ReloadConfig()
+  for name,_ in pairs(package.loaded) do
+    if name:match('^modules') then
+      package.loaded[name] = nil
+    end
+  end
+
+  dofile(vim.env.MYVIMRC)
+end
 -- s + any two keys to jump around document
 set_km("n", "s", "<Plug>(easymotion-s2)", { noremap = false })
 
@@ -28,7 +37,7 @@ set_km("n", "<C-j>", ":bprev<CR>")
 set_km("n", "<C-k>", ":bnext<CR>")
 
 set_km("n", "<Leader>p", "_dP")
-set_km("n", "<Leader>sv", ":source $MYVIMRC<CR>")
+set_km("n", "<Leader>sv", ":lua ReloadConfig()<CR>")
 
 -- easy move selected text
 set_km("v", "J", ":m '>+1<CR>gv=gv")
