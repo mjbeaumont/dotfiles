@@ -61,8 +61,8 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "wellle/targets.vim"
   use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
-  use "ahmedkhalf/project.nvim" 
-  use "goolord/alpha-nvim" 
+  use "ahmedkhalf/project.nvim"
+  use "goolord/alpha-nvim"
   use "moll/vim-bbye"
   use {
       'lewis6991/gitsigns.nvim',

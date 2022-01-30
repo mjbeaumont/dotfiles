@@ -27,6 +27,7 @@ set_km("v", "K", ":m '<-2<CR>gv=gv")
 set_km("n", "<C-n>", ":lua ToggleNumber()<CR>")
 
 set_km("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
+set_km("n", "<Leader>fp", ":Telescope projects<CR>")
 set_km("n", "<Leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
 set_km("n", "<Leader>fs", ":lua require('telescope.builtin').treesitter()<CR>")
 set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
