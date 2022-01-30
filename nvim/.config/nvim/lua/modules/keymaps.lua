@@ -5,25 +5,6 @@ set_km("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-function _G.ToggleNumber()
-  if vim.wo.nu == true then
-      vim.wo.nu = false
-      vim.wo.relativenumber = true
-  else
-      vim.wo.nu = true
-      vim.wo.relativenumber = false
-  end
-end
-
-function _G.ReloadConfig()
-  for name,_ in pairs(package.loaded) do
-    if name:match('^modules') then
-      package.loaded[name] = nil
-    end
-  end
-
-  dofile(vim.env.MYVIMRC)
-end
 -- s + any two keys to jump around document
 set_km("n", "s", "<Plug>(easymotion-s2)", { noremap = false })
 
@@ -56,7 +37,10 @@ set_km("n", "<Leader>a", ":Alpha<CR>")
 set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
 
 
-set_km("n", "<Leader>w", "Bdelete<CR>")
+set_km("n", "<Leader>w", ":Bdelete<CR>")
 set_km("n", "<Leader>kw", ":bufdo :Bdelete<CR>")
 set_km("n", "<Leader>q", ":qa!<CR>")
 set_km("n", "<Leader>s", ":wa!<CR>")
+
+set_km("n", "c*", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgn")
+set_km("n", "c#", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgN")
