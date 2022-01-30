@@ -1,18 +1,40 @@
 local set_km = require('modules/utils')
 
+--Remap space as leader key
+set_km("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+function ToggleNumber()
+  if vim.wo.nu == true then
+      vim.wo.nu = false
+      vim.wo.relativenumber = true
+  else
+      vim.wo.nu = true
+      vim.wo.relativenumber = false
+  end
+end
+
+-- s + any two keys to jump around document
 set_km("n", "s", "<Plug>(easymotion-s2)", { noremap = false })
 
 set_km("n", "<Leader>hl", ":TSHighlightCapturesUnderCursor")
+
+-- shortcut to jump to beginning/end of line
 set_km("n", "H", "^")
 set_km("n", "L", "$")
 
-set_km("n", "<Leader>p", "_dP")
-set_km("n", "<Leader>sv", ":source $MYVIMRC")
+set_km("n", "<C-j>", ":bprev<CR>")
+set_km("n", "<C-k>", ":bnext<CR>")
 
+set_km("n", "<Leader>p", "_dP")
+set_km("n", "<Leader>sv", ":source $MYVIMRC<CR>")
+
+-- easy move selected text
 set_km("v", "J", ":m '>+1<CR>gv=gv")
 set_km("v", "K", ":m '<-2<CR>gv=gv")
 
-set_km("n", "<C-n>", "NumberToggle")
+set_km("n", "<C-n>", ":lua ToggleNumber()<CR>")
 
 set_km("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
 set_km("n", "<Leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
@@ -21,8 +43,8 @@ set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
 set_km("n", "<Leader>gc", ":lua require('telescope.builtin').git_bcommits()<CR>")
 set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>")
 
-set_km("n", "a", ":Alpha<CR>")
-set_km("n", "b", ":NvimTreeToggle<CR>")
+set_km("n", "<Leader>a", ":Alpha<CR>")
+set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
 
 
 set_km("n", "<Leader>w", "Bdelete<CR>")

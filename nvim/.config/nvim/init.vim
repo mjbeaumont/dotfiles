@@ -3,24 +3,6 @@ function! Cond(Cond, ...)
   return a:Cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
-" Relative or absolute number lines
-function! NumberToggle()
-    if(&nu == 1)
-        set nu!
-        set rnu
-    else
-        set nornu
-        set nu
-    endif
-endfunction
-
-" Remember position of last edit and return on reopen
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-let mapleader="\<Space>"
-
 if exists('g:vscode')
     nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>
     xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
