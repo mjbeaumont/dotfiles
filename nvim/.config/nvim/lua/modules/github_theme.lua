@@ -5,10 +5,10 @@ end
 
 github_theme.setup({
   theme_style = "dark",
-  colors = { 
+  colors = {
     green = "#5FC73B",
   },
-  overrides = function(c) 
+  overrides = function(c)
     return {
      TSType = { fg = c.yellow },
      TSVariable = { fg = c.white },

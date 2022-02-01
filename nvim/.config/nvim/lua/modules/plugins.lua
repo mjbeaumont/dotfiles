@@ -65,22 +65,32 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "moll/vim-bbye"
   use {
-      'lewis6991/gitsigns.nvim',
+      "lewis6991/gitsigns.nvim",
       requires = {
-        'nvim-lua/plenary.nvim'
+        "nvim-lua/plenary.nvim"
       },
       config = function()
-          require('gitsigns').setup({
+          require("gitsigns").setup({
             sign_priority = 100
           })
       end
   }
   use {
-      'kyazdani42/nvim-tree.lua',
+      "kyazdani42/nvim-tree.lua",
       requires = {
-        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
   }
+  use {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {
+        log_level = "info",
+        auto_session_suppress_dirs = {"~/", "~/Projects"}
+      }
+    end
+  }
+  use "Pocco81/AutoSave.nvim"
   -- Colorschemes
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
@@ -88,7 +98,13 @@ return packer.startup(function(use)
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- Autocompletion plugin
   use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
-
+  use "hrsh7th/cmp-path" -- add filesystem path completion
+  use {
+    "David-Kunz/cmp-npm",
+    requires = {
+      "nvim-lua/plenary.nvim"
+    }
+  }
   -- snippets
 
   -- LSP
