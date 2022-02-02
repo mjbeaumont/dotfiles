@@ -90,7 +90,6 @@ return packer.startup(function(use)
       }
     end
   }
-  use "Pocco81/AutoSave.nvim"
   -- Colorschemes
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"

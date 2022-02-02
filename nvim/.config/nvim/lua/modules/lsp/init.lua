@@ -33,6 +33,7 @@ local function lsp_keymaps(bufnr)
   buf_set_km(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_set_km(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   buf_set_km(bufnr, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  buf_set_km(bufnr, "n", "<C-l>", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
   buf_set_km(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   buf_set_km(
     bufnr,
@@ -54,7 +55,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 for _, server in ipairs({
-    "eslint",
+    "efm",
     "jsonls",
     "sumneko_lua",
     "tsserver",
