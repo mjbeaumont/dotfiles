@@ -38,6 +38,7 @@ set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>"
 
 set_km("n", "<Leader>a", ":Alpha<CR>")
 set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
+set_km("n", "<Leader>gg", ":LazyGit<CR>")
 
 
 set_km("n", "<Leader>w", ":Bdelete<CR>")
