@@ -81,16 +81,8 @@ return packer.startup(function(use)
         "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
   }
-  use {
-    "rmagatti/auto-session",
-    config = function()
-      require("auto-session").setup {
-        log_level = "info",
-        auto_session_suppress_dirs = {"~/", "~/Projects"}
-      }
-    end
-  }
-  -- Colorschemes
+  use "kdheepak/lazygit.nvim"
+  -- ColorschemesO
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
 
