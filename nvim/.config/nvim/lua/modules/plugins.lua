@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "goolord/alpha-nvim"
   use "moll/vim-bbye"
+  use "antoinemadec/FixCursorHold.nvim"
   use {
       "lewis6991/gitsigns.nvim",
       requires = {
@@ -88,7 +89,10 @@ return packer.startup(function(use)
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- Autocompletion plugin
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-cmdline"
   use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+  use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-path" -- add filesystem path completion
   use {
     "David-Kunz/cmp-npm",
@@ -97,13 +101,19 @@ return packer.startup(function(use)
     }
   }
   -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use "neovim/nvim-lspconfig"
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
   use "b0o/schemastore.nvim"
   use "folke/lua-dev.nvim"
-
+  use {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+  }
+  use "kosayoda/nvim-lightbulb"
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
