@@ -1,8 +1,3 @@
-vim.cmd('autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab')
-
--- nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
--- nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
-
 require "modules/functions"
 require "modules/keymaps"
 require "modules/options"
@@ -17,3 +12,6 @@ require "modules/lsp"
 require "modules/nvim-cmp"
 require "modules/nvim-tree"
 require "modules/gitlinker"
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+vim.cmd [[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab]]
