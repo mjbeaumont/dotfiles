@@ -36,6 +36,11 @@ set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
 set_km("n", "<Leader>gc", ":lua require('telescope.builtin').git_bcommits()<CR>")
 set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>")
 
+set_km("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
+set_km("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
+set_km("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
+set_km("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
+
 set_km("n", "<Leader>a", ":Alpha<CR>")
 set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
 set_km("n", "<Leader>gg", ":LazyGit<CR>")
