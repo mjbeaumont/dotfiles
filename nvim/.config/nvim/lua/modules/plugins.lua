@@ -83,6 +83,10 @@ return packer.startup(function(use)
       },
   }
   use "kdheepak/lazygit.nvim"
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+ }
   -- ColorschemesO
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
