@@ -87,6 +87,7 @@ return packer.startup(function(use)
     'ruifm/gitlinker.nvim',
     requires = 'nvim-lua/plenary.nvim',
  }
+  use 'f-person/git-blame.nvim'
   -- ColorschemesO
   -- use "EdenEast/nightfox.nvim"
   use "projekt0n/github-nvim-theme"
