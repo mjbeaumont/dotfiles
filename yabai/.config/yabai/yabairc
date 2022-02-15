@@ -35,7 +35,7 @@ yabai -m space 4 --label code
 
 # window rules
 yabai -m rule --add app="^Code" space=code
-yabai -m rule --add app="^Iterm" space=terminal
+yabai -m rule --add app="^kitty" space=code
 yabai -m rule --add app="^Google Chrome" space=web
 yabai -m rule --add app="^Slack" space=tools
 yabai -m rule --add app="^Spotify$" space=tools
