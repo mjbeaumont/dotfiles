@@ -44,7 +44,14 @@ telescope.setup{
         override_generic_sorter = true,
         override_file_sorter = true,
       },
+      project = {
+        base_paths = {
+          {'~/Code/TFD'},
+        },
+        hidden_files = true,
+      }
   }
 }
 
 telescope.load_extension('fzf')
+telescope.load_extension('project')

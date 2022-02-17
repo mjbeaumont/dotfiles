@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "wellle/targets.vim"
   use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
-  use "ahmedkhalf/project.nvim"
+  -- use "ahmedkhalf/project.nvim"
   use "goolord/alpha-nvim"
   use "moll/vim-bbye"
   use "antoinemadec/FixCursorHold.nvim"
@@ -125,6 +125,7 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'nvim-telescope/telescope-project.nvim'
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
