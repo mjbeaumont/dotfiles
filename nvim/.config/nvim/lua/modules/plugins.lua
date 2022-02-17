@@ -38,29 +38,21 @@ packer.init {
   },
 }
 
-local function is_vscode() 
-  return vim.g.vscode == 1
-end
-
-local function is_not_vscode() 
-  return vim.g.vscode == nil 
-end
-
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use { "asvetliakov/vim-easymotion", cond = is_vscode, as = "vsc-easymotion" }
-  use { "easymotion/vim-easymotion", cond = is_not_vscode }
-  use "justinmk/vim-sneak"
+  -- use "easymotion/vim-easymotion"
+  -- use "justinmk/vim-sneak"
+  use "ggandor/lightspeed.nvim"
   use "tpope/vim-abolish"
   use "tpope/vim-commentary"
   use "tpope/vim-repeat"
   use "tpope/vim-surround"
   use "wellle/targets.vim"
-  use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} -- buffer tabs
   -- use "ahmedkhalf/project.nvim"
   use "goolord/alpha-nvim"
   use "moll/vim-bbye"
@@ -129,9 +121,9 @@ return packer.startup(function(use)
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use { "nvim-treesitter/playground", cond = is_not_vscode }
-  use { "nvim-treesitter/nvim-treesitter-textobjects", cond = is_not_vscode }
-  use { "JoosepAlviste/nvim-ts-context-commentstring", cond = is_not_vscode }
+  use  "nvim-treesitter/playground"
+  use  "nvim-treesitter/nvim-treesitter-textobjects"
+  use  "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

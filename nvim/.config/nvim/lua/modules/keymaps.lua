@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- s + any two keys to jump around document
-set_km("n", "s", "<Plug>(easymotion-s2)", { noremap = false })
+-- set_km("n", "s", "<Plug>(easymotion-s2)", { noremap = false })
 
 set_km("n", "<Leader>hl", ":TSHighlightCapturesUnderCursor<CR>")
 
