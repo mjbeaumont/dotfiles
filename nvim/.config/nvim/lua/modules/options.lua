@@ -41,6 +41,7 @@ local options = {
 
 vim.opt.shortmess:append "c"
 vim.g.cursorhold_updatetime = 100
+vim.api.nvim_command('colorscheme highlite')
 
 for k, v in pairs(options) do
   vim.opt[k] = v
