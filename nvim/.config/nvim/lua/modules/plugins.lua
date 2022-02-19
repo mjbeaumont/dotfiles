@@ -81,8 +81,7 @@ return packer.startup(function(use)
  }
   use 'f-person/git-blame.nvim'
   -- ColorschemesO
-  -- use "EdenEast/nightfox.nvim"
-  use "projekt0n/github-nvim-theme"
+  use "Iron-E/nvim-highlite"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- Autocompletion plugin
