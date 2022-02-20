@@ -13,6 +13,7 @@ require "modules/nvim-tree"
 require "modules/gitlinker"
 require "modules/git-blame"
 require "modules/colortheme"
+require "modules/octo"
 
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
