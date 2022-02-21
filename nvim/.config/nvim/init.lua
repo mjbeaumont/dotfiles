@@ -14,6 +14,7 @@ require "modules/gitlinker"
 require "modules/git-blame"
 require "modules/colortheme"
 require "modules/octo"
+require "modules/vim-test"
 
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]

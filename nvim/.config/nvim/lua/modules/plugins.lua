@@ -129,6 +129,9 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'nvim-telescope/telescope-project.nvim'
 
+    -- Tests
+    use 'vim-test/vim-test'
+
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use  "nvim-treesitter/playground"
