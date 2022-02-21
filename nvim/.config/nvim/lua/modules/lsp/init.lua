@@ -27,7 +27,7 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local buf_set_km = vim.api.nvim_buf_set_keymap;
   buf_set_km(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  buf_set_km(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  buf_set_km(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<Cn>", opts)
   buf_set_km(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_km(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   buf_set_km(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
