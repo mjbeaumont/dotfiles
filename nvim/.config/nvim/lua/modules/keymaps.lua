@@ -26,17 +26,6 @@ set_km("v", "K", ":m '<-2<CR>gv=gv")
 
 set_km("n", "<C-n>", ":lua ToggleNumber()<CR>")
 
-set_km("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
-set_km("n", "<Leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>")
-set_km("n", "<Leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
-set_km("n", "<Leader>fs", ":lua require('telescope.builtin').treesitter()<CR>")
-set_km("n", "<Leader>fo", ":lua require('telescope.builtin').buffers()<CR>")
-set_km("n", "<Leader>fr", ":lua require('telescope.builtin').oldfiles()<CR>")
-
-set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
-set_km("n", "<Leader>gc", ":lua require('telescope.builtin').git_bcommits()<CR>")
-set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>")
-
 set_km("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
 set_km("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
 set_km("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
@@ -45,7 +34,7 @@ set_km("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
 set_km("n", "<Leader>a", ":Alpha<CR>")
 set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
 set_km("n", "<Leader>gg", ":LazyGit<CR>")
-
+set_km("n", "s", "<Plug>Lightspeed_omni_s", { noremap = false })
 
 set_km("n", "<Leader>w", ":Bdelete<CR>")
 set_km("n", "<Leader>kw", ":bufdo :Bdelete<CR>")

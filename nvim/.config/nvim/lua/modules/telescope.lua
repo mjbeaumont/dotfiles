@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local set_km = require "modules.utils"
 
 telescope.setup{
   defaults = {
@@ -55,3 +56,18 @@ telescope.setup{
 
 telescope.load_extension('fzf')
 telescope.load_extension('project')
+
+set_km("n", "<Leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
+set_km("n", "<Leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>")
+set_km("n", "<Leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
+set_km("n", "<Leader>ft", ":lua require('telescope.builtin').treesitter()<CR>")
+set_km("n", "<Leader>fo", ":lua require('telescope.builtin').buffers()<CR>")
+set_km("n", "<Leader>fr", ":lua require('telescope.builtin').oldfiles()<CR>")
+set_km("n", "<Leader>fs", ":lua require('telescope.builtin').lsp_document_symbols()<CR>")
+
+set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
+set_km("n", "<Leader>gc", ":lua require('telescope.builtin').git_bcommits()<CR>")
+set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>")
+
+
+
