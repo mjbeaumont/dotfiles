@@ -54,3 +54,5 @@ set_km("n", "<Leader>s", ":wa!<CR>")
 
 set_km("n", "c*", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgn")
 set_km("n", "c#", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgN")
+
+set_km("t", "<C-o>", "<C-\\><C-n>");

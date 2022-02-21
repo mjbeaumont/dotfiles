@@ -131,6 +131,7 @@ return packer.startup(function(use)
 
     -- Tests
     use 'vim-test/vim-test'
+    use 'voldikss/vim-floaterm'
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
