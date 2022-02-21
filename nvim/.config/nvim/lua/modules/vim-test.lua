@@ -18,7 +18,6 @@ local function getJestCwd()
     local pkgJsonParentDir = lsputil.find_package_json_ancestor(
         currentBufferFilePath
     )
-    print(pkgJsonParentDir)
     return pkgJsonParentDir
 end
 
