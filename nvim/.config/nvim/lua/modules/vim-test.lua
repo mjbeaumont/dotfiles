@@ -7,6 +7,7 @@ set_km("n", "<Leader>tl", ":TestLast<CR>");
 
 vim.g['test#javascript#jest#file_pattern'] = "\\vtest\\.(js|jsx|ts|tsx)$";
 vim.g['test#javascript#jest#executable'] = 'NODE_ENV=test pnpx jest'
+vim.cmd('let g:test#enabled_runners = ["javascript#jest"]')
 vim.g['test#strategy'] = 'floaterm'
 
 local function getJestCwd()
