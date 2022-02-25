@@ -138,6 +138,7 @@ return packer.startup(function(use)
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use  "nvim-treesitter/playground"
     use  "nvim-treesitter/nvim-treesitter-textobjects"
+    use  "RRethy/nvim-treesitter-textsubjects"
     use  "JoosepAlviste/nvim-ts-context-commentstring"
 
     -- Automatically set up your configuration after cloning packer.nvim
