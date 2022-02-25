@@ -56,6 +56,7 @@ return packer.startup(function(use)
     -- use "ahmedkhalf/project.nvim"
     use "goolord/alpha-nvim"
     use "moll/vim-bbye"
+    use "camgraff/telescope-tmux.nvim"
     use "antoinemadec/FixCursorHold.nvim"
     use {
         "lewis6991/gitsigns.nvim",
