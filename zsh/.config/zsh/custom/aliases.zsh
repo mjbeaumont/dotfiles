@@ -25,3 +25,4 @@ alias tx="tmuxinator"
 alias vim=nvim
 alias vimc="nvim ~/.config/nvim/init.vim"
 alias vimgolf="docker run --rm -it -e "key=YOUR_VIMGOLF_KEY" hettomei/vimgolf"
+alias ry="yabaictl update-spaces && bsrestart yabai"
