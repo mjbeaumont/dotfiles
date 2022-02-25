@@ -65,6 +65,9 @@ set_km("n", "<Leader>fo", ":lua require('telescope.builtin').buffers()<CR>")
 set_km("n", "<Leader>fr", ":lua require('telescope.builtin').oldfiles()<CR>")
 set_km("n", "<Leader>fs", ":lua require('telescope.builtin').lsp_document_symbols()<CR>")
 
+set_km("n", "<Leader>fw", ":Telescope tmux windows<CR>")
+set_km("n", "<Leader>fx", ":Telescope tmux sessions<CR>")
+
 set_km("n", "<Leader>gs", ":lua require('telescope.builtin').git_status()<CR>")
 set_km("n", "<Leader>gc", ":lua require('telescope.builtin').git_bcommits()<CR>")
 set_km("n", "<Leader>gb", ":lua require('telescope.builtin').git_branches()<CR>")
