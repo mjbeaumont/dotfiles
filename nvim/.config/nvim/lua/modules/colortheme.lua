@@ -46,3 +46,13 @@ highlite.highlight('TSBoolean', 'TSNumber');
 highlite.highlight('TSPunctSpecial', { fg = white });
 highlite.highlight('TSConstant', { fg = white });
 highlite.highlight('commentTSConstant',  'Keyword');
+
+highlite.highlight('CmpItemAbbrMatch', { fg = gold });
+highlite.highlight('CmpItemAbbrMatchFuzzy', { fg = gold });
+
+highlite.highlight('CmpItemKindVariable', { fg = light_blue });
+highlite.highlight('CmpItemKindInterface', { fg = light_blue });
+highlite.highlight('CmpItemKindText', { fg = light_blue });
+
+highlite.highlight('CmpItemKindFunction', { fg = purple });
+highlite.highlight('CmpItemKindMethod', { fg = purple });

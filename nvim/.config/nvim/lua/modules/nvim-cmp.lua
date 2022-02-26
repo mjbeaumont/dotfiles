@@ -44,6 +44,34 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 cmp.setup {
 snippet = {
   expand = function(args)
@@ -77,22 +105,16 @@ snippet = {
     end,
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
+    fields = { "abbr", "kind" },
+    format = function(_, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-      })[entry.source.name]
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
       return vim_item
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "nvim_lsp" },
     { name = "buffer", keyword_length = 5 },
     { name = "path" },
     { name = "cmdline" },
