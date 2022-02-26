@@ -44,8 +44,8 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-    -- use "easymotion/vim-easymotion"
-    -- use "justinmk/vim-sneak"
+
+    -- enhanced vim keymaps/motions
     use "ggandor/lightspeed.nvim"
     use "tpope/vim-abolish"
     use "tpope/vim-commentary"
@@ -53,10 +53,8 @@ return packer.startup(function(use)
     use "tpope/vim-surround"
     use "wellle/targets.vim"
     use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} -- buffer tabs
-    -- use "ahmedkhalf/project.nvim"
     use "goolord/alpha-nvim"
     use "moll/vim-bbye"
-    use "camgraff/telescope-tmux.nvim"
     use "antoinemadec/FixCursorHold.nvim"
     use {
         "lewis6991/gitsigns.nvim",
@@ -81,6 +79,7 @@ return packer.startup(function(use)
         requires = 'nvim-lua/plenary.nvim',
     }
     use 'f-person/git-blame.nvim'
+
     -- ColorschemesO
     use "Iron-E/nvim-highlite"
 
@@ -114,14 +113,15 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "b0o/schemastore.nvim"
-    use "folke/lua-dev.nvim"
     use {
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
     }
     use "kosayoda/nvim-lightbulb"
+
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim',
@@ -129,6 +129,7 @@ return packer.startup(function(use)
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'nvim-telescope/telescope-project.nvim'
+    use "camgraff/telescope-tmux.nvim"
 
     -- Tests
     use 'vim-test/vim-test'
