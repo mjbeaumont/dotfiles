@@ -1,11 +1,12 @@
 local M = {
-    setup = function(on_attach, capabilities)
+    getOpts = function(on_attach, capabilities)
         local lspconfig = require("lspconfig")
         local opts = { silent = true, noremap = true }
 
-        lspconfig["eslint"].setup({
+        return {
             root_dir = lspconfig.util.root_pattern(".eslintrc", ".eslintrc.js", "package.json"),
             on_attach = function(client, bufnr)
+                print "eslint specific onattach"
                 client.resolved_capabilities.document_formatting = true
                 on_attach(client, bufnr)
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-l>", ":EslintFixAll<CR>", opts)
@@ -16,7 +17,7 @@ local M = {
                     enable = true,
                 },
             },
-        })
+        }
     end,
 }
 

@@ -1,7 +1,7 @@
 local M = {}
 
--- TODO: backfill this to template
 M.setup = function()
+  -- define symbols
   local signs = {
     { name = "DiagnosticSignError", text = "" },
     { name = "DiagnosticSignWarn", text = "" },
@@ -13,14 +13,13 @@ M.setup = function()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
+  -- settings
   local config = {
-    -- disable virtual text
-    virtual_text = false,
-    -- show signs
+    virtual_text = true,
     signs = {
       active = signs,
     },
-    update_in_insert = true,
+    update_in_insert = false,
     underline = true,
     severity_sort = true,
     float = {
@@ -61,36 +60,32 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
+  local set_km = vim.api.nvim_buf_set_keymap;
   local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
+  set_km(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  set_km(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+  set_km(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  set_km(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  set_km(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  set_km(bufnr, "n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+  set_km(bufnr, "n", "ga", "<cmd>:CodeActionMenu<CR>", opts)
+  set_km(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
+  set_km(bufnr,
     "n",
     "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    "<cmd>lua vim.diagnostic.open_float()<CR>",
     opts
   )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  set_km(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 -- use lsp formatting if it's available (and if it's good)
 -- otherwise, fall back to null-ls
 
-local preferred_formatting_clients = { "denols", "eslint" }
-local fallback_formatting_client = "null-ls"
+local preferred_formatting_clients = {"eslint" }
 
-local formatting = function(bufnr)
+_G.formatting = function(bufnr)
     bufnr = tonumber(bufnr) or vim.api.nvim_get_current_buf()
 
     local selected_client
@@ -98,10 +93,6 @@ local formatting = function(bufnr)
         if vim.tbl_contains(preferred_formatting_clients, client.name) then
             selected_client = client
             break
-        end
-
-        if client.name == fallback_formatting_client then
-            selected_client = client
         end
     end
 
@@ -130,27 +121,18 @@ local formatting = function(bufnr)
     end, bufnr)
 end
 
-global.lsp = {
-    border_opts = border_opts,
-    formatting = formatting,
-}
-
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-  end
-
-  if client.supports_method("textDocument/formatting") then
-        vim.cmd([[
-        augroup LspFormatting
-            autocmd! * <buffer>
-            autocmd BufWritePost <buffer> lua global.lsp.formatting(vim.fn.expand("<abuf>"))
-        augroup END
-        ]])
-  end 
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+  return
+end
+
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
