@@ -26,11 +26,6 @@ set_km("v", "K", ":m '<-2<CR>gv=gv")
 
 set_km("n", "<C-n>", ":lua ToggleNumber()<CR>")
 
-set_km("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
-set_km("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
-set_km("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
-set_km("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
-
 set_km("n", "<Leader>a", ":Alpha<CR>")
 set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
 set_km("n", "<Leader>gg", ":LazyGit<CR>")
