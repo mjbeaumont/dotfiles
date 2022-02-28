@@ -1,3 +1,4 @@
+require "modules/autocommands"
 require "modules/functions"
 require "modules/keymaps"
 require "modules/options"
@@ -17,6 +18,7 @@ require "modules/octo"
 require "modules/vim-test"
 require "modules/floaterm"
 require "modules/indent-blankline"
+require "modules/nvim-treehopper"
 
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
