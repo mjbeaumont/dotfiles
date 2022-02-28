@@ -18,6 +18,7 @@ local gray_light  = {'#c0c0c0', 250, 'gray'}
 local gray_darker = {'#505050', 239, 'gray'}
 local orange = { '#D19A66', 255, 'orange' }
 local purple = { '#B57EDC', 255, 'purple' }
+local ref_bg = { '#265459', 255, 'blue' }
 
 highlite.highlight('Normal', { fg = white, bg = background });
 highlite.highlight('Visual', { bg = background_visual_selection });
@@ -56,3 +57,7 @@ highlite.highlight('CmpItemKindText', { fg = light_blue });
 
 highlite.highlight('CmpItemKindFunction', { fg = purple });
 highlite.highlight('CmpItemKindMethod', { fg = purple });
+
+highlite.highlight('LSPReferenceText', { bg = ref_bg });
+highlite.highlight('LSPReferenceRead', { bg = ref_bg });
+highlite.highlight('LSPReferenceWrite', { bg = ref_bg });
