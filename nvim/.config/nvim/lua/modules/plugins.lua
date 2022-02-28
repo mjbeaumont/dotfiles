@@ -55,6 +55,7 @@ return packer.startup(function(use)
     use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} -- buffer tabs
     use "goolord/alpha-nvim"
     use "moll/vim-bbye"
+    use "lukas-reineke/indent-blankline.nvim"
     use "antoinemadec/FixCursorHold.nvim"
     use {
         "lewis6991/gitsigns.nvim",
