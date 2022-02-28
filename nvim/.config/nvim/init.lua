@@ -16,6 +16,7 @@ require "modules/colortheme"
 require "modules/octo"
 require "modules/vim-test"
 require "modules/floaterm"
+require "modules/indent-blankline"
 
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
