@@ -9,5 +9,3 @@ set_km("n", "<Leader>ph", ":FloatermNew htop<CR>")
 set_km("n", "<Leader>pn", ":FloatermNew ts-node<CR>")
 set_km("n", "<Leader>pe", ":FloatermNew --autoclose=0 ts-node %<CR>")
 set_km("n", "<Leader>pt", ":FloatermToggle<CR>")
-
-

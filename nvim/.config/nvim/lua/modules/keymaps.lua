@@ -1,4 +1,4 @@
-local set_km = require('modules/utils')
+local set_km = require("modules/utils")
 
 --Remap space as leader key
 set_km("", "<Space>", "<Nop>")
@@ -39,4 +39,4 @@ set_km("n", "<Leader>s", ":wa!<CR>")
 set_km("n", "c*", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgn")
 set_km("n", "c#", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgN")
 
-set_km("t", "<C-o>", "<C-\\><C-n>");
+set_km("t", "<C-o>", "<C-\\><C-n>")
