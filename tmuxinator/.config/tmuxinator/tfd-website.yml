@@ -5,7 +5,6 @@ pre_window: nvm use
 
 windows:
   - server: pnpm website run develop
-  - git: 
-    -
-  - tests:
+  - code: nvim 
+  - terminal:
     -

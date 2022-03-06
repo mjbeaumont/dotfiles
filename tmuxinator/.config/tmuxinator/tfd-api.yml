@@ -15,8 +15,7 @@ windows:
           - docker-compose up postgres
         - start_server:
           - npm run start-dev
-  - git: 
-    -
-  - tests: 
+  - code: nvm use 14 && nvim
+  - terminal: 
     -
  

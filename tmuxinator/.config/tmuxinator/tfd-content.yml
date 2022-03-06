@@ -1,8 +1,0 @@
-name: tfd-website
-root: ~/Code/TFD/website
-
-windows:
-  - server: yarn bloodhound run develop
-  - git: 
-    -
-  - tests: yarn bloodhound run test --watch

@@ -3,7 +3,6 @@ root: ~/Code/TFD/corgi
 
 windows:
   - server: yarn start
-  - git: 
-    -
-  - tests: 
+  - code: nvim
+  - terminal: 
     -
