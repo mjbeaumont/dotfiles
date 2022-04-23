@@ -9,11 +9,11 @@ gitlinker.setup()
 
 set_km(
     "n",
-    "<leader>gb",
+    "<leader>go",
     '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
 )
 set_km(
     "v",
-    "<leader>gb",
+    "<leader>go",
     '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
 )
