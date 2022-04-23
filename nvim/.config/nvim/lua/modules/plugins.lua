@@ -55,8 +55,8 @@ return packer.startup(function(use)
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- buffer tabs
     use("goolord/alpha-nvim")
     use("moll/vim-bbye")
-    use("lukas-reineke/indent-blankline.nvim")
-    use("antoinemadec/FixCursorHold.nvim")
+    -- use("lukas-reineke/indent-blankline.nvim")
+    -- use("antoinemadec/FixCursorHold.nvim")
     use({
         "lewis6991/gitsigns.nvim",
         requires = {
@@ -144,6 +144,11 @@ return packer.startup(function(use)
     use("RRethy/nvim-treesitter-textsubjects")
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("mfussenegger/nvim-ts-hint-textobject")
+
+    -- Debugging
+    use("Pocco81/DAPInstall.nvim")
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
