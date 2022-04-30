@@ -8,10 +8,12 @@ on_project_stop:
 
 windows:
   - server: 
-    - layout: 'main-horizontal'
-    - panes: 
-      - start_database: cd domains/leads/tosa && docker-compose up dynamodb dynamodb-admin
-      - start_server: pnpm --filter leads-tosa develop
+      layout: main-horizontal
+      panes: 
+        - start_database: 
+          - cd domains/leads/tosa && docker-compose up dynamodb dynamodb-admin
+        - start_server: 
+          -  pnpm --filter leads-tosa develop
   - code: nvim 
   - terminal: 
     -
