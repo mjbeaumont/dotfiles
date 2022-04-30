@@ -90,6 +90,7 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-cmdline")
     use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
     use("saadparwaiz1/cmp_luasnip")
+    use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("hrsh7th/cmp-path") -- add filesystem path completion
     use({
         "David-Kunz/cmp-npm",

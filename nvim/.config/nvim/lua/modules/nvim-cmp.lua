@@ -93,6 +93,7 @@ cmp.setup({
         { name = "buffer", keyword_length = 5 },
         { name = "path" },
         { name = "cmdline" },
+        { name = "nvim_lsp_signature_help" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
