@@ -55,4 +55,6 @@ set_km("n", "<Leader>j", "<C-w><C-j>")
 set_km("n", "<Leader>k", "<C-w><C-k>")
 set_km("n", "<Leader>l", "<C-w><C-l>")
 
+set_km("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
+
 set_km("t", "<C-o>", "<C-\\><C-n>")
