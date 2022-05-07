@@ -28,8 +28,8 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                0
 
 # mission-control desktop labels
-yabai -m space 1 --label tools
-yabai -m space 2 --label terminal
+yabai -m space 1 --label tool
+yabai -m space 2 --label idle
 yabai -m space 3 --label web
 yabai -m space 4 --label code
 
@@ -37,9 +37,9 @@ yabai -m space 4 --label code
 yabai -m rule --add app="^Code" space=code
 yabai -m rule --add app="^kitty" space=code
 yabai -m rule --add app="^Google Chrome" space=web
-yabai -m rule --add app="^Slack" space=tools
-yabai -m rule --add app="^Spotify$" space=tools
-yabai -m rule --add app="^zoom\." space=tools
+yabai -m rule --add app="^Slack" space=tool
+yabai -m rule --add app="^Spotify$" space=tool
+yabai -m rule --add app="^zoom\." space=tool
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Stickies" manage=off

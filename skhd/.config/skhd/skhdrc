@@ -25,14 +25,14 @@ lctrl + cmd - k : yabai -m window --focus stack.prev || yabai -m window --focus 
 
 # Space navigation
 lctrl + cmd - o : yabai -m space --focus recent
-rshift + rcmd - 1 : yabai -m space --focus tools
-rshift + rcmd - 2 : yabai -m space --focus terminal
+rshift + rcmd - 1 : yabai -m space --focus tool
+rshift + rcmd - 2 : yabai -m space --focus idle
 rshift + rcmd - 3 : yabai -m space --focus web
 rshift + rcmd - 4 : yabai -m space --focus code
 
 # Move focus container to workspace
-lctrl + lcmd - 1 : yabai -m window --space 1; yabai -m space --focus tools
-lctrl + lcmd - 2 : yabai -m window --space 2; yabai -m space --focus terminal
+lctrl + lcmd - 1 : yabai -m window --space 1; yabai -m space --focus tool
+lctrl + lcmd - 2 : yabai -m window --space 2; yabai -m space --focus idle
 lctrl + lcmd - 3 : yabai -m window --space 3; yabai -m space --focus web
 lctrl + lcmd - 4 : yabai -m window --space 4; yabai -m space --focus code
 
