@@ -4,7 +4,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged" # Spotify Event for trac
 
 sketchybar --add       event              spotify_change $SPOTIFY_EVENT                                  \
            --clone     spotify.name       label_template                                                 \
-           --set       spotify.name       position=right                                                 \
+           --set       spotify.name       position=left                                                 \
                                           click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
                                           popup.horizontal=on                                            \
                                           popup.align=center                                             \

@@ -2,7 +2,7 @@
 
 sketchybar --clone     system.label       label_template                                \
            --set       system.label       label=sys                                     \
-                                          position=right                                 \
+                                          position=left                                 \
                                           drawing=on                                    \
                                           script="$PLUGIN_DIR/window_title.sh"          \
            --subscribe system.label       front_app_switched                            \
@@ -30,18 +30,6 @@ sketchybar --clone     system.label       label_template                        
                                           background.padding_left=-4                    \
                                           background.padding_right=-4                   \
                                                                                         \
-           --add       item               system.mic right                               \
-           --set       system.mic         update_freq=100                               \
-                                          label.drawing=off                             \
-                                          script="$PLUGIN_DIR/mic.sh"                   \
-                                          click_script="$PLUGIN_DIR/mic_click.sh"       \
-                                                                                        \
-           --add       item               system.caffeinate right                        \
-           --set       system.caffeinate  update_freq=100                               \
-                                          icon=$LOADING                                 \
-                                          label.drawing=off                             \
-                                          script="$PLUGIN_DIR/caffeinate.sh"            \
-           --subscribe system.caffeinate  mouse.clicked                                 \
                                                                                         \
            --add       item               system.yabai_float right                       \
            --set       system.yabai_float script="$PLUGIN_DIR/yabai_float.sh"           \
@@ -55,8 +43,6 @@ sketchybar --clone     system.label       label_template                        
                                           "Control Center,Battery"                      \
                                           "Control Center,WiFi"                         \
                                           "Control Center,Sound"                        \
-                                          system.mic                                    \
-                                          system.caffeinate                             \
                                           system.yabai_float                            \
                                                                                         \
            --set       system             background.drawing=on
