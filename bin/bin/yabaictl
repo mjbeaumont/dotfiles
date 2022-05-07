@@ -12,9 +12,16 @@ setups = {
         "88908F05-559E-DA24-9B5C-FE345483E536",
         "BC123BB3-9B9D-D598-851C-19B2C127AB07",
     ],
+    "personal": [
+        "37D8832A-2D66-02CA-B9F7-8F30A301B230"
+    ],
+    "personal_2_monitor": [
+        "37D8832A-2D66-02CA-B9F7-8F30A301B230",
+        "BC123BB3-9B9D-D598-851C-19B2C127AB07",
+    ],
 }
 
-wanted_labels = ["tools", "terminal", "web", "code",]
+wanted_labels = ["tool", "idle", "web", "code",]
 
 ignore_messages = [
     "acting space is already located on the given display.",
@@ -62,7 +69,8 @@ class WindowManager:
 
     @property
     def visible_spaces(self):
-        return [space for space in self.spaces if space["visible"] > 0]
+        print(self.spaces)
+        return [space for space in self.spaces if space["is-visible"] > 0]
 
     def refresh_state(self):
         self.spaces = yabai_query("spaces")
