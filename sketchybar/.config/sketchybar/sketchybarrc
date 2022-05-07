@@ -107,15 +107,11 @@ sketchybar --bar                height=32                                       
                                 background.padding_right=0                                        \
                                 drawing=off
 
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
+source "$PLUGIN_DIR/yabai_spaces.sh"
 source "$ITEM_DIR/github.sh"
 source "$ITEM_DIR/network.sh"
-source "$ITEM_DIR/memory.sh"
 
 source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/cpu.sh"
-# source "$ITEM_DIR/svim.sh"
 source "$ITEM_DIR/system.sh"
 source "$ITEM_DIR/spotify.sh"
 
