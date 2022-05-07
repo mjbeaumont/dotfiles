@@ -2,12 +2,12 @@
 
 sketchybar --clone     system.label       label_template                                \
            --set       system.label       label=sys                                     \
-                                          position=left                                 \
+                                          position=right                                 \
                                           drawing=on                                    \
                                           script="$PLUGIN_DIR/window_title.sh"          \
            --subscribe system.label       front_app_switched                            \
                                                                                         \
-           --add       alias              "Control Center,Battery" left                 \
+           --add       alias              "Control Center,Battery" right                 \
            --set "Control Center,Battery" update_freq=2                                 \
                                           drawing=$HAS_BATTERY                          \
                                           icon.padding_left=-5                          \
@@ -16,34 +16,34 @@ sketchybar --clone     system.label       label_template                        
                                           background.padding_right=-3                   \
                                           click_script="sketchybar -m --set \"\$NAME\" popup.drawing=toggle" \
                                                                                         \
-           --add       alias              "Control Center,WiFi" left                    \
+           --add       alias              "Control Center,WiFi" right                    \
            --set    "Control Center,WiFi" update_freq=2                                 \
                                           icon.drawing=off                              \
                                           label.drawing=off                             \
                                           background.padding_left=-4                    \
                                           background.padding_right=-4                   \
                                                                                         \
-           --add       alias              "Control Center,Sound" left                   \
+           --add       alias              "Control Center,Sound" right                   \
            --set   "Control Center,Sound" update_freq=2                                 \
                                           icon.drawing=off                              \
                                           label.drawing=off                             \
                                           background.padding_left=-4                    \
                                           background.padding_right=-4                   \
                                                                                         \
-           --add       item               system.mic left                               \
+           --add       item               system.mic right                               \
            --set       system.mic         update_freq=100                               \
                                           label.drawing=off                             \
                                           script="$PLUGIN_DIR/mic.sh"                   \
                                           click_script="$PLUGIN_DIR/mic_click.sh"       \
                                                                                         \
-           --add       item               system.caffeinate left                        \
+           --add       item               system.caffeinate right                        \
            --set       system.caffeinate  update_freq=100                               \
                                           icon=$LOADING                                 \
                                           label.drawing=off                             \
                                           script="$PLUGIN_DIR/caffeinate.sh"            \
            --subscribe system.caffeinate  mouse.clicked                                 \
                                                                                         \
-           --add       item               system.yabai_float left                       \
+           --add       item               system.yabai_float right                       \
            --set       system.yabai_float script="$PLUGIN_DIR/yabai_float.sh"           \
                                           icon.font="$FONT:Bold:16.0"                   \
                                           label.drawing=off                             \
