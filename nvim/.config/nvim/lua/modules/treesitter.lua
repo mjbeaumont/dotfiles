@@ -20,6 +20,7 @@ configs.setup({
         "python",
         "scss",
         "todotxt",
+        "tsx",
         "typescript",
         "vim",
         "vue",
