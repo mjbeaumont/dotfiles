@@ -17,7 +17,7 @@ sketchybar --add       space              space_template left                \
                                           position=left                      \
                                           drawing=on                         \
 
-icons=("􀃉" "􀽎" "􀼺" "􀓕" "􀤙" "􀃓" "􀃕" "􀃗" "􀃙" "􀃛" "􀕒" "􀕓" "􀕔" "􀕕" "􀕖") #0 to 14
+icons=("􀃉" "􀤊" "􀓨" "􀆪" "􀙚" "􀃓" "􀃕" "􀃗" "􀃙" "􀃛" "􀕒" "􀕓" "􀕔" "􀕕" "􀕖") #0 to 14
 highlight_colors=("" "0xff9dd274" "0xfff69c5e" "0xff72cce8" "0xffeacb64" "0xff9dd274" "0xfff69c5e" "0xff72cce8" "0xffeacb64" "0xff9dd274" "0xfff69c5e" "0xff72cce8" "0xffeacb64" "0xff9dd274" "0xfff69c5e")
 
 QUERY="$(yabai -m query --spaces | jq -r '.[] | [.index, .windows[0], .label, .display, .["is-visible"]] | @sh')"
