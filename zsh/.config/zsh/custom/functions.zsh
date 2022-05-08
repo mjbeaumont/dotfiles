@@ -31,9 +31,9 @@ termcolors() {
 }
 
 gf_code() {
-   ag -l $1 | fzf | xargs code
+   ag -l $1 | fzf | xargs nvim
 }
 
 gfh_code() {
-   ag -u -l $1 | fzf | xargs code
+   ag -u -l $1 | fzf | xargs nvim
 }
