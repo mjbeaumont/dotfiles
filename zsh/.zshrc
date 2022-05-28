@@ -11,6 +11,7 @@ KEYTIMEOUT=1
 export ZSH="/Users/matthewbeaumont/.oh-my-zsh"
 
 plugins=(
+    aws
     ag
     docker  
     docker-compose
