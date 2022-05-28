@@ -74,7 +74,7 @@ shift + alt - space : \
     yabai -m window --toggle border
 
 # Restart Yabai
-shift + lctrl + alt - r : \
+rshift + rcmd - r : \
     /usr/bin/env osascript <<< \
         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
