@@ -46,7 +46,7 @@ return packer.startup(function(use)
     use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
     -- enhanced vim keymaps/motions
-    use("ggandor/lightspeed.nvim")
+    use("ggandor/leap.nvim")
     use("tpope/vim-abolish")
     use("tpope/vim-commentary")
     use("tpope/vim-repeat")
