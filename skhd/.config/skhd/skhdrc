@@ -1,6 +1,3 @@
-# opens iTerm2
-alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
-
 # cycle forward
 lctrl + cmd - l : yabai -m space --focus next \
     || yabai -m window --focus "$( \
