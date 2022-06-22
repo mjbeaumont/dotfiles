@@ -16,6 +16,11 @@ M.getOpts = function(on_attach, capabilities)
     return {
         root_dir = lspconfig.util.root_pattern("package.json"),
         init_options = ts_utils.init_options,
+        settings = {
+          completions = {
+            completeFunctionCalls = true
+          }
+        },
         on_attach = function(client, bufnr)
             if client.config.flags then
                 client.config.flags.allow_incremental_sync = true
