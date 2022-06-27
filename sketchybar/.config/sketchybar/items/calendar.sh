@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 sketchybar --add       item               calendar.time right                           \
            --set       calendar.time      update_freq=2                                 \
                                           icon.drawing=off                              \
@@ -16,5 +15,11 @@ sketchybar --add       item               calendar.time right                   
            --add       bracket            calendar                                      \
                                           calendar.time                                 \
                                           calendar.date                                 \
+                                                                                        \
+            --add      alias              MeetingBar right                              \
+            --set      MeetingBar         background.padding_right=-8                   \
+                                          background.padding_left=-10                   \
+                                          update_freq=10                                \
+                                                                                        \
                                                                                         \
            --set       calendar           background.drawing=on
