@@ -8,6 +8,7 @@ if not config_status_ok then
   return
 end
 
+local set_km = require("modules.utils")
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
@@ -95,3 +96,6 @@ nvim_tree.setup({
     }
   }
 })
+
+set_km("n", "<Leader>b", ":NvimTreeToggle<CR>")
+set_km("n", "<Leader>bc", ":NvimTreeCollapse<CR>")
