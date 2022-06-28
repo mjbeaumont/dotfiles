@@ -23,6 +23,7 @@ require("modules/formatter")
 require("modules/nvim-dap")
 require("modules/nvim-dap-ui")
 require("modules/leap")
+require("modules/nvim-trouble")
 
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
 vim.cmd([[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab]])
