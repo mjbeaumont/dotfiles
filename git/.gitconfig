@@ -1,8 +1,11 @@
 [user]
 	name = Matt Beaumont
 	email = mbeaumont@thefarmersdog.com
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDO+GPYUMq2S74B6e58PazWjAio5slLbaAIUi1ahHCziFwBQoBKN/FXL/z2+2L4JxJHJc6uR7DfGZg9aWSwWW3DOXRZMhqK73XWpJQ4wgYzFtv6b7F6llqSkwlQ3ZwhHSLXUVvsopsB0RbwHglIOP7DByY1gf+pSU6vvRxJhwSgFMJqbInVUsBeGM9uT/cutb6kpWxCWKuX6YY3b0YE8UZ9hBrPRmPx4LCiyRsGp6sRFoqVFCqjuxa8PMszzcJ56jQv+u5y7fKxnyNBiXTzmJOKn2oJYXnDJ0ReFyKa+3McbdgSiuMm+vrM1h2MbUBB1Euaw6dqD3+MqKVt+QxGUd2Khmyp1Ys6i3bw8tgUSQeYjB9+VORLnIkGhP+6fL8d1nG9Q9+9XoJeEFV8XQEOT/YVAy1GShvFCzAB0pXynzuphqErK8o3ZxPc17fsjERUeIrnAj/IFVEDNipgGuxMR8+7XPyaXkC+wttQ0t3snyAQRb8J8guFBgW+zhlt/fxKKag2JQdpJkGJ8YAxCXE5Dfs21WinZZjVqgJ2zeWwFsJ9k+WUDkruaarFlJNje3rj4pNgxRUQjL1tf2GOn5tqUWnhYh8KbF50ElFs8QCyU95IlZYOU4/BZZkRfV8LXXarvEWzKpcNYZ6EJ01UV1UBajFNodbilR1k0BTKf8RKCbfqYw==
 [core]
 	pager = git-split-diffs --color | less -RFX
 	editor = nvim
 [split-diffs]
 	theme-name = arctic
+[pull]
+  rebase = false

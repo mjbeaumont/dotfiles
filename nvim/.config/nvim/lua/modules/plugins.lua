@@ -113,7 +113,11 @@ return packer.startup(function(use)
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
     -- LSP
-    use("neovim/nvim-lspconfig")
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    }    
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("b0o/schemastore.nvim")
     use("mhartington/formatter.nvim")
