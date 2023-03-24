@@ -35,8 +35,8 @@ local M = {
                 return vim.fn.getcwd()
             end,
             on_attach = function(client, bufnr)
-                client.resolved_capabilities.document_formatting = true
-                client.resolved_capabilities.goto_definition = false
+                client.server_capabilities.document_formatting = true
+                client.server_capabilities.goto_definition = false
                 on_attach(client, bufnr)
             end,
             capabilities = capabilities,
