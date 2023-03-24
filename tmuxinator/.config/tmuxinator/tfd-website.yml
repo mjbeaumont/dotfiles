@@ -1,5 +1,5 @@
 name: tfd-website
-root: ~/Code/TFD/website
+root: ~/Code/TFD/beethoven
 
 pre_window: nvm use
 

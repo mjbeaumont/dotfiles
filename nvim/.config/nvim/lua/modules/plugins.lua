@@ -114,7 +114,6 @@ return packer.startup(function(use)
 
     -- LSP
     use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("b0o/schemastore.nvim")
     use("mhartington/formatter.nvim")
@@ -124,7 +123,6 @@ return packer.startup(function(use)
     })
     use("kosayoda/nvim-lightbulb")
     use("folke/trouble.nvim")
-
 
     -- Telescope
     use({
@@ -146,7 +144,12 @@ return packer.startup(function(use)
     use("RRethy/nvim-treesitter-textsubjects")
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("mfussenegger/nvim-ts-hint-textobject")
-
+    use({
+        "chrisgrieser/nvim-various-textobjs",
+        config = function()
+            require("various-textobjs").setup({ useDefaultKeymaps = true })
+        end,
+    })
     -- Debugging
     use("Pocco81/DAPInstall.nvim")
     use("mfussenegger/nvim-dap")
