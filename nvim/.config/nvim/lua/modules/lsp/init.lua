@@ -1,7 +1,21 @@
-local status_ok, _ = pcall(require, "lspconfig")
+local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
     return
 end
 
-require("modules.lsp.lsp-installer")
+require("mason").setup()
+require("mason-lspconfig").setup()
 require("modules.lsp.handlers").setup()
+
+local opts = {
+    on_attach = require("modules.lsp.handlers").on_attach,
+    capabilities = require("modules.lsp.handlers").capabilities,
+}
+
+lspconfig.eslint.setup(
+  require("modules.lsp.tsserver").getOpts(opts.on_attach, opts.capabilities)
+)
+lspconfig.tsserver.setup(
+  require("modules.lsp.eslint").getOpts(opts.on_attach, opts.capabilities)
+)
+
