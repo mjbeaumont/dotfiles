@@ -37,3 +37,11 @@ gf_code() {
 gfh_code() {
    ag -u -l $1 | fzf | xargs nvim
 }
+
+function ecrlogin(){
+	# If you named your profile for the staging account something different
+	# update AWS_PROFILE below
+	export AWS_PROFILE=staging
+	aws sso login --profile $AWS_PROFILE
+	aws ecr get-login-password --region us-east-1 --profile $AWS_PROFILE | docker login --username AWS --password-stdin 191786937809.dkr.ecr.us-east-1.amazonaws.com
+}
