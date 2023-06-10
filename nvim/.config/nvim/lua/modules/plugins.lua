@@ -113,11 +113,11 @@ return packer.startup(function(use)
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
     -- LSP
-    use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    }    
+    use({
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    })
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("b0o/schemastore.nvim")
     use("mhartington/formatter.nvim")
@@ -156,9 +156,13 @@ return packer.startup(function(use)
     })
     -- Debugging
     use("mfussenegger/nvim-dap")
-    use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
-    use({ "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} });
-
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+    use({
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    })
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
