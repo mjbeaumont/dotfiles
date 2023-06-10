@@ -18,4 +18,8 @@ lspconfig.eslint.setup(
 lspconfig.tsserver.setup(
   require("modules.lsp.eslint").getOpts(opts.on_attach, opts.capabilities)
 )
+lspconfig.lua_ls.setup(
+  require("modules.lsp.lua_ls").getOpts()
+)
+
 
