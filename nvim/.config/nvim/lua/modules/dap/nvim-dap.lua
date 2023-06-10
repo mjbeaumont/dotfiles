@@ -1,4 +1,5 @@
 local dap = require("dap")
+
 dap.adapters.node2 = {
     type = "executable",
     command = "node",
@@ -38,11 +39,11 @@ dap.configurations.typescript = {
 }
 
 dap.configurations.javascriptreact = {
-    chromeAttachConfig
+    chromeAttachConfig,
 }
 
 dap.configurations.typescriptreact = {
-    chromeAttachConfig
+    chromeAttachConfig,
 }
 
 local set_km = require("modules/utils")
