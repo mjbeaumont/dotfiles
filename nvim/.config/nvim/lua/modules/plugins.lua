@@ -155,9 +155,9 @@ return packer.startup(function(use)
         end,
     })
     -- Debugging
-    use("Pocco81/DAPInstall.nvim")
     use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
+    use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
+    use({ "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} });
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
