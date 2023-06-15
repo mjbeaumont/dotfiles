@@ -1,14 +1,12 @@
-# Install Homebrew
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew upgrade
-
 # Install packages
+taps=(
+  FelixKratz/formulae
+)
 
 apps=(
    ansible
    awscli
+   docker-compose
    fontconfig
    freetype
    fzf
@@ -27,8 +25,7 @@ apps=(
    nvm
    python
    ripgrep
-   sketchybar
-   skhd
+   koekeishiya/formulae/skhd
    stow
    stylua
    the_silver_searcher
@@ -39,11 +36,12 @@ apps=(
    tree-sitter
    webp
    wget
-   yabai
+   koekeishiya/formulae/yabai
    zoxide
    zsh
 )
 
+brew tap "${taps[@]}"
 brew install "${apps[@]}"
 
 # Git comes with diff-highlight, but isn't in the PATH

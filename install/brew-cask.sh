@@ -1,3 +1,7 @@
+taps=(
+    homebrew/cask-fonts
+)
+
 apps=(
     1password
     alfred
@@ -21,4 +25,5 @@ apps=(
     zoom
 )
 
+brew tap "${taps[@]}"
 brew install "${apps[@]}" --cask

@@ -1,0 +1,15 @@
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# create symlink to zsh
+sudo ln -s /opt/homebrew/bin/zsh /usr/local/bin/zsh 
+
+# install neovim dependencies via Packer
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+# install git-split-diffs for better command-line diffs
+npm install -g git-split-diffs
+
+# install click (dependency for yabai)
+pip3 install click
+
