@@ -81,7 +81,7 @@ return packer.startup(function(use)
     use("f-person/git-blame.nvim")
 
     -- ColorschemesO
-    use("Iron-E/nvim-highlite")
+    use({ "Iron-E/nvim-highlite", tag = "v3.1.0" })
 
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
