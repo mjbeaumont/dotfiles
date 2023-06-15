@@ -13,3 +13,6 @@ npm install -g git-split-diffs
 # install click (dependency for yabai)
 pip3 install click
 
+# install fzf keybindings
+$(brew --prefix)/opt/fzf/install
+
