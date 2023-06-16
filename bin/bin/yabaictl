@@ -19,6 +19,15 @@ setups = {
         "37D8832A-2D66-02CA-B9F7-8F30A301B230",
         "BC123BB3-9B9D-D598-851C-19B2C127AB07",
     ],
+    "tfd": [
+        "37D8832A-2D66-02CA-B9F7-8F30A301B230"
+    ],
+    "tfd_2_monitor": [
+        "37D8832A-2D66-02CA-B9F7-8F30A301B230",
+        "5DD271F5-DF14-427B-82A9-6C91A060EA7A",
+    ],
+    
+    
 }
 
 wanted_labels = ["tool", "idle", "web", "code",]
