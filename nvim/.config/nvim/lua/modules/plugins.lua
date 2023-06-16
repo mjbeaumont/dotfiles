@@ -52,8 +52,8 @@ return packer.startup(function(use)
     use("tpope/vim-repeat")
     use("tpope/vim-surround")
     use("wellle/targets.vim")
-    use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- buffer tabs
-    use("goolord/alpha-nvim")
+    use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" }) -- buffer tabs
+    use({ "goolord/alpha-nvim", requires = "nvim-tree/nvim-web-devicons" }) -- buffer tabs
     use("moll/vim-bbye")
 
     use({
@@ -70,7 +70,7 @@ return packer.startup(function(use)
     use({
         "kyazdani42/nvim-tree.lua",
         requires = {
-            "kyazdani42/nvim-web-devicons", -- optional, for file icon
+            "nvim-tree/nvim-web-devicons", -- optional, for file icon
         },
     })
     use("kdheepak/lazygit.nvim")
@@ -81,7 +81,7 @@ return packer.startup(function(use)
     use("f-person/git-blame.nvim")
 
     -- ColorschemesO
-    use("Iron-E/nvim-highlite")
+    use({ "Iron-E/nvim-highlite", tag = "v3.1.0" })
 
     -- cmp plugins
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
@@ -102,7 +102,7 @@ return packer.startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
-            "kyazdani42/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons",
         },
         config = function()
             require("octo").setup()
