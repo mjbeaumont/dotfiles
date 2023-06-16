@@ -16,3 +16,6 @@ pip3 install click
 # install fzf keybindings
 $(brew --prefix)/opt/fzf/install
 
+# enable focus follows mouse
+defaults write com.apple.Terminal FocusFollowsMouse -bool true
+
