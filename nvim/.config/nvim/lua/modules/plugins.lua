@@ -127,7 +127,7 @@ return packer.startup(function(use)
     })
     use("kosayoda/nvim-lightbulb")
     use("folke/trouble.nvim")
-
+    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim");
     -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
