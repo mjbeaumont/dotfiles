@@ -126,8 +126,7 @@ return packer.startup(function(use)
         cmd = "CodeActionMenu",
     })
     use("kosayoda/nvim-lightbulb")
-    use("folke/trouble.nvim")
-    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim");
+    use({ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, opts = { use_diagnostic_signs = true } })
     -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
