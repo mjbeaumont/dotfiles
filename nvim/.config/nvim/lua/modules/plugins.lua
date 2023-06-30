@@ -67,6 +67,7 @@ return packer.startup(function(use)
             })
         end,
     })
+    use('echasnovski/mini.files');
     use({
         "kyazdani42/nvim-tree.lua",
         requires = {
