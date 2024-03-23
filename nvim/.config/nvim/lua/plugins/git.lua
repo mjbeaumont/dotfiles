@@ -75,7 +75,7 @@ return {
             {
                 "<Leader>oc",
                 ":Octo search is:pr is:open commenter:@me archived:false<CR>",
-                "Open PR Discussions",
+                desc = "Open PR Discussions",
             },
         },
     },
