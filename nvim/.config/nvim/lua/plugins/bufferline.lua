@@ -1,12 +1,7 @@
 return {
     "akinsho/bufferline.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
-        vim.g.floaterm_keymap_toggle = "<F1>"
-        vim.g.floaterm_height = 0.9
-        vim.g.floaterm_width = 0.9
-    end,
-    lazy = true,
+    lazy = false,
     config = function()
         local status_ok, bufferline = pcall(require, "bufferline")
         if not status_ok then
