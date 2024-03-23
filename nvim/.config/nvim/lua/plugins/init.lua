@@ -17,12 +17,6 @@ return {
             "nvim-tree/nvim-web-devicons", -- optional, for file icon
         },
     },
-    "kdheepak/lazygit.nvim",
-    {
-        "ruifm/gitlinker.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-    },
-    "f-person/git-blame.nvim",
 
     -- cmp plugins
     "hrsh7th/nvim-cmp", -- Autocompletion plugin
