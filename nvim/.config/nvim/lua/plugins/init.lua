@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
     -- enhanced vim keymaps/motions
-    "ggandor/leap.nvim",
     "tpope/vim-abolish",
     "tpope/vim-commentary",
     "tpope/vim-repeat",
