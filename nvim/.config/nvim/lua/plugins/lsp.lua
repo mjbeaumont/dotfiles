@@ -49,7 +49,7 @@ return {
     "b0o/schemastore.nvim",
     {
         "mrcjkb/rustaceanvim",
-        version = "^4", 
+        version = "^4",
         ft = { "rust" },
     },
 }
