@@ -11,25 +11,10 @@ return {
     "wellle/targets.vim",
     "moll/vim-bbye",
 
-    -- cmp plugins
-    "hrsh7th/nvim-cmp", -- Autocompletion plugin
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
-    "hrsh7th/cmp-path", -- add filesystem path completion
-    {
-        "David-Kunz/cmp-npm",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
-    -- LSP
     {
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
