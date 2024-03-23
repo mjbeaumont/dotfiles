@@ -11,18 +11,6 @@ return {
     "tpope/vim-surround",
     "wellle/targets.vim",
     "moll/vim-bbye",
-
-    {
-        "lewis6991/gitsigns.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("gitsigns").setup({
-                sign_priority = 100,
-            })
-        end,
-    },
     "echasnovski/mini.files",
     {
         "kyazdani42/nvim-tree.lua",
