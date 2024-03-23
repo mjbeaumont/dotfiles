@@ -25,23 +25,11 @@ return {
             "nvim-lua/plenary.nvim",
         },
     },
-    {
-        "mrcjkb/rustaceanvim",
-        version = "^4", -- Recommended
-        ft = { "rust" },
-    },
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
     -- LSP
-    {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    },
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    "b0o/schemastore.nvim",
     "mhartington/formatter.nvim",
     {
         "weilbith/nvim-code-action-menu",
