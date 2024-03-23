@@ -61,9 +61,6 @@ return {
         opts = { use_diagnostic_signs = true },
     },
 
-    -- Tests
-    "vim-test/vim-test",
-
     -- Debugging
     "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
