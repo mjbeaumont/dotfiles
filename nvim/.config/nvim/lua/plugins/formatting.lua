@@ -1,6 +1,7 @@
 return {
     {
         "mhartington/formatter.nvim",
+        lazy = false,
         config = function()
             local status_ok, formatter = pcall(require, "formatter")
             if not status_ok then
@@ -39,9 +40,11 @@ return {
             })
         end,
         keys = {
-            "<C-l>",
-            ":FormatWrite<CR>",
-            silent = true,
+            {
+                "<C-l>",
+                ":FormatWrite<CR>",
+                silent = true,
+            },
         },
     },
 }
