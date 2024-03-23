@@ -5,4 +5,6 @@ end
 
 dap_vscode_js.setup({
     adapters = { "pwa-node", "pwa-chrome",  "node-terminal", },
+    -- log_file_path = '/Users/matthewbeaumont/log/',
+    log_file_level = 0,
 })
