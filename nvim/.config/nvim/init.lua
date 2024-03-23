@@ -6,7 +6,6 @@ require("lazy_nvim")
 require("modules/nvim-cmp")
 require("modules/indent-blankline")
 require("modules/nvim-treehopper")
-require("modules/formatter")
 require("modules/dap")
 require("modules/nvim-trouble")
 
