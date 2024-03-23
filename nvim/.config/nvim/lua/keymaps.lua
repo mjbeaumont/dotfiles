@@ -10,8 +10,6 @@ vim.g.maplocalleader = " "
 
 set_km("n", "Q", "<Nop>")
 
-set_km("n", "<Leader>hl", ":TSHighlightCapturesUnderCursor<CR>")
-
 -- shortcut to jump to beginning/end of line
 set_km("n", "H", "^")
 set_km("n", "L", "$")
