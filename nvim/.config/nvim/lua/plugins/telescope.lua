@@ -72,47 +72,55 @@ return {
                 "<Leader>ff",
                 ":lua require('telescope.builtin').find_files()<CR>",
                 desc = "Find Files",
+                silent = true,
             },
 
             {
                 "<Leader>fp",
                 ":lua require'telescope'.extensions.project.project{}<CR>",
                 desc = "Find Projects",
+                silent = true,
             },
 
             {
                 "<Leader>fg",
                 ":lua require('telescope.builtin').live_grep()<CR>",
                 desc = "Find Text",
+                silent = true,
             },
 
             {
                 "<Leader>ft",
                 ":lua require('telescope.builtin').treesitter()<CR>",
                 desc = "Find Treesitter",
+                silent = true,
             },
 
             {
                 "<Leader>fr",
                 ":lua require('telescope.builtin').oldfiles()<CR>",
                 desc = "Find Recent",
+                silent = true,
             },
 
             {
                 "<Leader>fs",
                 ":lua require('telescope.builtin').lsp_document_symbols()<CR>",
                 desc = "Find Symbols",
+                silent = true,
             },
 
             {
                 "<Leader>fw",
                 ":Telescope tmux windows<CR>",
                 desc = "Find Tmux Window",
+                silent = true,
             },
             {
                 "<Leader>fx",
                 ":Telescope tmux sessions<CR>",
                 desc = "Find Tmux Session",
+                silent = true,
             },
         },
     },
