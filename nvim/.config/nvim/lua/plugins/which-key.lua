@@ -17,6 +17,10 @@ return {
                 name = "Open Popup",
                 d = "Open LazyDocker",
             },
-        })
+            g = {
+                name = "Git",
+                y = "Yank current Github link to clipboard",
+            },
+        }, { prefix = "<Leader>" })
     end,
 }
