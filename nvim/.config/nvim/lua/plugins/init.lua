@@ -66,6 +66,11 @@ return {
         },
     },
     {
+        "mrcjkb/rustaceanvim",
+        version = "^4", -- Recommended
+        ft = { "rust" },
+    },
+    {
         "pwntester/octo.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
