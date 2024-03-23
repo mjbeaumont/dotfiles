@@ -37,19 +37,6 @@ return {
         version = "^4", -- Recommended
         ft = { "rust" },
     },
-    {
-        "pwntester/octo.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("octo").setup({ suppress_missing_scope = {
-                project_v2 = true,
-            } })
-        end,
-    },
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use

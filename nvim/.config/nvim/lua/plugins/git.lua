@@ -49,4 +49,34 @@ return {
             { "<Leader>gbo", ":GitBlameOpenCommitURL<CR>", desc = "Open Commit URL " },
         },
     },
+    {
+        "pwntester/octo.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("octo").setup({ suppress_missing_scope = {
+                project_v2 = true,
+            } })
+        end,
+        keys = {
+            {
+                "<Leader>or",
+                ":Octo search is:pr is:open review-requested:@me archived:false<CR>",
+                desc = "Open PR Review Requests",
+            },
+            {
+                "<Leader>om",
+                ":Octo search is:pr is:open author:@me archived:false<CR>",
+                desc = "Open My PRs",
+            },
+            {
+                "<Leader>oc",
+                ":Octo search is:pr is:open commenter:@me archived:false<CR>",
+                "Open PR Discussions",
+            },
+        },
+    },
 }
