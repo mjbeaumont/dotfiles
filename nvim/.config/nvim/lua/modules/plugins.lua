@@ -67,7 +67,7 @@ return packer.startup(function(use)
             })
         end,
     })
-    use('echasnovski/mini.files');
+    use("echasnovski/mini.files")
     use({
         "kyazdani42/nvim-tree.lua",
         requires = {
@@ -106,7 +106,9 @@ return packer.startup(function(use)
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            require("octo").setup()
+            require("octo").setup({ suppress_missing_scope = {
+                project_v2 = true,
+            } })
         end,
     })
     -- snippets
@@ -127,7 +129,11 @@ return packer.startup(function(use)
         cmd = "CodeActionMenu",
     })
     use("kosayoda/nvim-lightbulb")
-    use({ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, opts = { use_diagnostic_signs = true } })
+    use({
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = { use_diagnostic_signs = true },
+    })
     -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
