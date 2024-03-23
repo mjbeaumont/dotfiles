@@ -44,8 +44,8 @@ set_km("n", "<Leader>kw", ":bufdo :Bdelete<CR>")
 set_km("n", "<Leader>q", ":qa!<CR>")
 set_km("n", "<Leader>s", ":wa!<CR>")
 
-set_km("n", "c*", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgn")
-set_km("n", "c#", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgN")
+set_km("n", "c*", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgn", { desc = "Change current word (repeatable forward)"})
+set_km("n", "c#", "/<C-R>=expand('<cword>')<CR>/C<CR>``cgN", { desc = "Change current word (repeatable backward)"})
 
 set_km("n", "<Leader>h", "<C-w><C-h>")
 set_km("n", "<Leader>j", "<C-w><C-j>")
