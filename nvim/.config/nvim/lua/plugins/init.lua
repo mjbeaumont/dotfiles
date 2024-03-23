@@ -7,11 +7,6 @@ return {
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-    {
-        "weilbith/nvim-code-action-menu",
-        cmd = "CodeActionMenu",
-    },
-    "kosayoda/nvim-lightbulb",
 
     -- Debugging
     "mfussenegger/nvim-dap",
