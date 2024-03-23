@@ -1,6 +1,9 @@
 return {
     "Iron-E/nvim-highlite",
     config = function()
+        -- or one of the alternate colorschemes (see the "Built-in Colorschemes" section
+        vim.api.nvim_command("colorscheme highlite")
+
         local status_ok, highlite = pcall(require, "highlite")
         if not status_ok then
             return
@@ -17,10 +20,7 @@ return {
         local gold = { "#E9D16C", 255, "gold" }
         local red = { "#D74E42", 255, "red" }
         local light_blue = { "#56B6C2", 255, "blue" }
-        local dark_blue = { "#1085FF", 255, "blue" }
         local white = { "#FFFFFF", 255, "white" }
-        local gray_light = { "#c0c0c0", 250, "gray" }
-        local gray_darker = { "#505050", 239, "gray" }
         local orange = { "#D19A66", 255, "orange" }
         local purple = { "#B57EDC", 255, "purple" }
         local ref_bg = { "#265459", 255, "blue" }
@@ -66,8 +66,6 @@ return {
         highlite.highlight("LSPReferenceText", { bg = ref_bg })
         highlite.highlight("LSPReferenceRead", { bg = ref_bg })
         highlite.highlight("LSPReferenceWrite", { bg = ref_bg })
-        -- or one of the alternate colorschemes (see the "Built-in Colorschemes" section
-        vim.api.nvim_command("colorscheme highlite")
     end,
     lazy = false,
     priority = math.huge,
