@@ -11,7 +11,6 @@ return {
     "tpope/vim-surround",
     "wellle/targets.vim",
     { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" }, -- buffer tabs
-    { "goolord/alpha-nvim", dependencies = "nvim-tree/nvim-web-devicons" }, -- buffer tabs
     "moll/vim-bbye",
 
     {
@@ -117,7 +116,6 @@ return {
 
     -- Tests
     "vim-test/vim-test",
-    "voldikss/vim-floaterm",
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
