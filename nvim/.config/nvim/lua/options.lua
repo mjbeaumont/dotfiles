@@ -8,6 +8,7 @@ local options = {
     cursorline = true, -- highlight the current line
     expandtab = true, -- convert tabs to spaces
     fileencoding = "utf-8", -- the encoding written to a file
+    grepprg = "rg --vimgrep",
     guifont = "monospace:h17", -- the font used in graphical neovim applications
     ignorecase = true, -- ignore case in search patterns
     incsearch = true,
