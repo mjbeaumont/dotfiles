@@ -19,5 +19,9 @@ return {
         })
 
         leap.add_default_mappings()
+
+        function _G.LeapBidirectional()
+            leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
+        end
     end,
 }
