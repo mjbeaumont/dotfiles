@@ -10,7 +10,6 @@ return {
     "tpope/vim-repeat",
     "tpope/vim-surround",
     "wellle/targets.vim",
-    { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" }, -- buffer tabs
     "moll/vim-bbye",
 
     {

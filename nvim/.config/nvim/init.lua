@@ -6,7 +6,6 @@ require("lazy-plugins")
 --require("modules/plugins")
 require("modules/treesitter")
 require("modules/telescope")
-require("modules/bufferline")
 -- require "modules/projects"
 require("modules/lsp")
 require("modules/nvim-cmp")
