@@ -105,17 +105,6 @@ return {
 
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    "nvim-treesitter/playground",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "RRethy/nvim-treesitter-textsubjects",
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    "mfussenegger/nvim-ts-hint-textobject",
-    {
-        "chrisgrieser/nvim-various-textobjs",
-        config = function()
-            require("various-textobjs").setup({ useDefaultKeymaps = true })
-        end,
-    },
     -- Debugging
     "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
