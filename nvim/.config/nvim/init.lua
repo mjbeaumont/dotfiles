@@ -3,8 +3,6 @@ require("modules/functions")
 require("modules/keymaps")
 require("modules/options")
 require("lazy-plugins")
---require("modules/plugins")
--- require "modules/projects"
 require("modules/lsp")
 require("modules/nvim-cmp")
 require("modules/mini-files")
