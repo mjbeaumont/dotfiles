@@ -26,7 +26,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = { "jose-elias-alvarez/nvim-lsp-ts-utils" },
-        config = function(_, opts)
+        config = function()
             local status_ok, lspconfig = pcall(require, "lspconfig")
 
             if not status_ok then
@@ -40,8 +40,8 @@ return {
 
             lsp_settings.setup()
 
-            lspconfig.eslint.setup(eslint.getOpts(opts.on_attach, opts.capabilities))
-            lspconfig.tsserver.setup(tsserver.getOpts(opts.on_attach, opts.capabilities))
+            lspconfig.eslint.setup(eslint.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
+            lspconfig.tsserver.setup(tsserver.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.lua_ls.setup(lua_ls.getOpts())
         end,
     },
