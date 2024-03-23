@@ -63,17 +63,17 @@ return {
         end,
         keys = {
             {
-                "<Leader>or",
+                "<Leader>gr",
                 ":Octo search is:pr is:open review-requested:@me archived:false<CR>",
                 desc = "Open PR Review Requests",
             },
             {
-                "<Leader>om",
+                "<Leader>gm",
                 ":Octo search is:pr is:open author:@me archived:false<CR>",
                 desc = "Open My PRs",
             },
             {
-                "<Leader>oc",
+                "<Leader>gc",
                 ":Octo search is:pr is:open commenter:@me archived:false<CR>",
                 desc = "Open PR Discussions",
             },

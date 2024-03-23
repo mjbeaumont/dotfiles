@@ -6,7 +6,7 @@ return {
         vim.g["test#javascript#jest#file_pattern"] = "\\vtest\\.(js|jsx|ts|tsx)$"
         vim.g["test#javascript#jest#executable"] = "NODE_ENV=test node_modules/.bin/jest"
         vim.cmd('let g:test#enabled_runners = ["javascript#jest"]')
-        vim.g["test#strategy"] = "floaterm"
+        vim.g["test#strategy"] = "toggleterm"
 
         local function getJestCwd()
             local lsputil = require("lspconfig.util")
