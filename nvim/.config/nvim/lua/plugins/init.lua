@@ -4,13 +4,6 @@ return {
     "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
     -- enhanced vim keymaps/motions
-    "tpope/vim-abolish",
-    "tpope/vim-commentary",
-    "tpope/vim-repeat",
-    "tpope/vim-surround",
-    "wellle/targets.vim",
-    "moll/vim-bbye",
-
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use

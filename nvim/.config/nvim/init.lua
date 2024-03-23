@@ -3,7 +3,6 @@ require("functions")
 require("keymaps")
 require("options")
 require("lazy_nvim")
-require("modules/nvim-treehopper")
 require("modules/dap")
 require("modules/nvim-trouble")
 
