@@ -30,7 +30,6 @@ return {
     "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
     -- LSP
-    "mhartington/formatter.nvim",
     {
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
