@@ -10,13 +10,6 @@ return {
     "tpope/vim-surround",
     "wellle/targets.vim",
     "moll/vim-bbye",
-    "echasnovski/mini.files",
-    {
-        "kyazdani42/nvim-tree.lua",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons", -- optional, for file icon
-        },
-    },
 
     -- cmp plugins
     "hrsh7th/nvim-cmp", -- Autocompletion plugin
