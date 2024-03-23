@@ -18,6 +18,7 @@ configs.setup({
         "php",
         "prisma",
         "python",
+        "rust",
         "scss",
         "todotxt",
         "tsx",
@@ -26,6 +27,7 @@ configs.setup({
         "vue",
         "yaml",
     }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    auto_install = true,
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     ignore_install = { "" }, -- List of parsers to ignore installing
     playground = {
@@ -55,10 +57,6 @@ configs.setup({
         additional_vim_regex_highlighting = false,
     },
     indent = { enable = true, disable = { "yaml" } },
-    context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-    },
     lsp_interop = {
         enable = true,
         peek_definition_code = {
@@ -111,4 +109,8 @@ configs.setup({
             ["i;"] = "textsubjects-container-inner",
         },
     },
+})
+
+require("ts_context_commentstring").setup({
+    enable_autocmd = false,
 })
