@@ -4,7 +4,6 @@ require("modules/keymaps")
 require("modules/options")
 require("lazy-plugins")
 --require("modules/plugins")
-require("modules/telescope")
 -- require "modules/projects"
 require("modules/lsp")
 require("modules/nvim-cmp")

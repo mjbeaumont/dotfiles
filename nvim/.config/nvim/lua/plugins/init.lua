@@ -73,14 +73,6 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = { use_diagnostic_signs = true },
     },
-    -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { { "nvim-lua/plenary.nvim" } },
-    },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-telescope/telescope-project.nvim",
-    "camgraff/telescope-tmux.nvim",
 
     -- Tests
     "vim-test/vim-test",
