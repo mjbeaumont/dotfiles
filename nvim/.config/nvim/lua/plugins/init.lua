@@ -24,18 +24,6 @@ return {
     },
     "f-person/git-blame.nvim",
 
-    -- ColorschemesO
-    {
-        "Iron-E/nvim-highlite",
-        config = function()
-            -- or one of the alternate colorschemes (see the "Built-in Colorschemes" section)
-            vim.api.nvim_command("colorscheme highlite")
-        end,
-        lazy = false,
-        priority = math.huge,
-        version = "3.1.0",
-    },
-
     -- cmp plugins
     "hrsh7th/nvim-cmp", -- Autocompletion plugin
     "hrsh7th/cmp-buffer",
@@ -103,8 +91,6 @@ return {
     -- Tests
     "vim-test/vim-test",
 
-    -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- Debugging
     "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
