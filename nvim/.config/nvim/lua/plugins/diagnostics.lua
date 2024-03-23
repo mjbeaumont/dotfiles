@@ -56,4 +56,14 @@ return {
             ts_error_translator.setup()
         end,
     },
+    {
+        "weilbith/nvim-code-action-menu",
+        cmd = "CodeActionMenu",
+    },
+    {
+        "kosayoda/nvim-lightbulb",
+        config = function()
+            vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+        end,
+    },
 }
