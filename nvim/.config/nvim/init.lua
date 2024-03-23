@@ -20,7 +20,6 @@ require("modules/indent-blankline")
 require("modules/nvim-treehopper")
 require("modules/formatter")
 require("modules/dap")
-require("modules/leap")
 require("modules/nvim-trouble")
 
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
