@@ -24,4 +24,12 @@ return {
             leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
         end
     end,
+    keys = {
+        {
+            "s",
+            ":lua LeapBidirectional()<CR>",
+            noremap = false,
+            silent = true,
+        },
+    },
 }

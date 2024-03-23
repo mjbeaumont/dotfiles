@@ -130,6 +130,9 @@ return {
                 enable_autocmd = false,
             })
         end,
+        keys = {
+            { "<Leader>hl", ":TSHighlightCapturesUnderCursor<CR>", desc = "Show Highlight Capture Under Cursor" },
+        },
     },
     "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-textobjects",
