@@ -39,4 +39,12 @@ return {
         dashboard.opts.opts.noautocmd = true
         alpha.setup(dashboard.opts)
     end,
+    keys = {
+        {
+            "<Leader>a",
+            ":Alpha<CR>",
+            desc = "Open Alpha",
+            silent = true,
+        },
+    },
 }

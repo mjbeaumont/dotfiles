@@ -35,9 +35,6 @@ set_km("n", "<C-Right>", ":vertical resize +2<CR>")
 
 set_km("n", "<C-n>", ":lua ToggleNumber()<CR>")
 
-set_km("n", "<Leader>a", ":Alpha<CR>")
-set_km("n", "<Leader>gg", ":LazyGit<CR>")
-set_km("n", "s", ":lua LeapBidirectional()<CR>", { noremap = false })
 
 set_km("n", "<Leader>w", ":Bdelete<CR>")
 set_km("n", "<Leader>kw", ":bufdo :Bdelete<CR>")
