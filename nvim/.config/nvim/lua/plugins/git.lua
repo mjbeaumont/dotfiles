@@ -72,6 +72,7 @@ return {
                 project_v2 = true,
             } })
         end,
+        cmd = "Octo",
         keys = {
             {
                 "<Leader>gr",
