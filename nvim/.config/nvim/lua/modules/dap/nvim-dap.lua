@@ -31,15 +31,13 @@ for _, language in ipairs({ "typescript", "typescriptreact", "javascript", "java
 					},
 					{
 						type = "pwa-chrome",
-						name = "Launch Chrome to debug client",
-						request = "launch",
-						url = "http://localhost:5173",
+						name = "Attach to existing Chrome window to debug",
+						request = "attach",
+						url = "http://localhost:3000",
 						sourceMaps = true,
 						protocol = "inspector",
 						port = 9222,
-						webRoot = "${workspaceFolder}/src",
-						-- skip files from vite's hmr
-						skipFiles = { "**/node_modules/**/*", "**/@vite/*", "**/src/client/*", "**/src/*" },
+						webRoot = "${workspaceFolder}/.build-dev-server",
 					},
 					-- only if language is javascript, offer this debug action
 					language == "javascript" and {
