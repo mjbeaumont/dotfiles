@@ -1,7 +1,7 @@
 return {
     "vim-test/vim-test",
     lazy = true,
-    dependencies = { "voldikss/vim-floaterm" },
+    dependencies = { "akinsho/toggleterm.nvim" },
     config = function()
         vim.g["test#javascript#jest#file_pattern"] = "\\vtest\\.(js|jsx|ts|tsx)$"
         vim.g["test#javascript#jest#executable"] = "NODE_ENV=test node_modules/.bin/jest"
