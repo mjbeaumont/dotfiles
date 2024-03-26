@@ -17,7 +17,6 @@ return {
     },
     {
         "kdheepak/lazygit.nvim",
-        config = true,
         keys = {
             {
                 "<Leader>gg",
