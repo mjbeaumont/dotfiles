@@ -69,19 +69,7 @@ local function lsp_highlight_document(client)
     end
 end
 
-local function lsp_keymaps(bufnr)
-    local set_km = vim.api.nvim_buf_set_keymap
-    local opts = { noremap = true, silent = true }
-    set_km(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    set_km(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
-    set_km(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    set_km(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    set_km(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    set_km(bufnr, "n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
-    set_km(bufnr, "n", "ga", "<cmd>:CodeActionMenu<CR>", opts)
-    set_km(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
-    set_km(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    set_km(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
+local function lsp_keymaps()
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
