@@ -40,5 +40,11 @@ return {
             desc = "Open File Browser in latest location",
             silent = true,
         },
+        {
+            "<Leader>bd",
+            ":lua MiniFiles.open('~/dotfiles', false)<CR>",
+            desc = "Open Dotfiles directory",
+            silent = true,
+        },
     },
 }
