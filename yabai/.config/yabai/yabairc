@@ -70,6 +70,7 @@ yabai -m rule --add app="^kitty" space=code
 yabai -m rule --add app="^Google Chrome" space=web
 yabai -m rule --add app="^Slack" space=tool
 yabai -m rule --add app="^Spotify$" space=tool
+yabai -m rule --add app="^Messages" space=tool
 yabai -m rule --add app="^zoom\." space=tool
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
