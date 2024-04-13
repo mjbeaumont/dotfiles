@@ -42,9 +42,9 @@ local options = {
 vim.opt.shortmess:append("c")
 vim.g.cursorhold_updatetime = 100
 
-if vim.fn.executable('ag') == 1 then
-  vim.o.grepprg= 'ag --vimgrep $*'
-  vim.o.grepformat = '%f:%l:%c:%m'
+if vim.fn.executable("ag") == 1 then
+    vim.o.grepprg = "ag --vimgrep $*"
+    vim.o.grepformat = "%f:%l:%c:%m"
 end
 for k, v in pairs(options) do
     vim.opt[k] = v
