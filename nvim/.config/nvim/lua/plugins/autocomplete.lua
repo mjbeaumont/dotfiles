@@ -68,7 +68,9 @@ return {
                         select = true,
                     }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
-                        if luasnip.expand_or_jumpable() then
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
                         elseif has_words_before() then
                             cmp.complete()
@@ -93,14 +95,14 @@ return {
                         return vim_item
                     end,
                 },
-                sources = {
-                    { name = "luasnip" },
+                sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "buffer", keyword_length = 5 },
+                    { name = "luasnip" },
                     { name = "path" },
-                    --  { name = "cmdline" },
                     { name = "nvim_lsp_signature_help" },
-                },
+                }, {
+                    { name = "buffer", keyword_length = 5 },
+                }),
                 confirm_opts = {
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = false,
@@ -111,25 +113,25 @@ return {
                 },
             })
 
-            cmp.setup.cmdline(":", {
-                sources = {
-                    { name = "cmdline" },
-                },
-            })
-
-            cmp.setup.cmdline("/", {
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = "buffer" },
                 },
             })
+
+            cmp.setup.cmdline(
+                { ":" },
+                { mapping = cmp.mapping.preset.cmdline(), sources = { name = "cmdline" }, { name = "path" } }
+            )
         end,
     }, -- Autocompletion plugin
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path", -- add filesystem path completion
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    "hrsh7th/cmp-path", -- add filesystem path completion
     {
         "David-Kunz/cmp-npm",
         dependencies = {
