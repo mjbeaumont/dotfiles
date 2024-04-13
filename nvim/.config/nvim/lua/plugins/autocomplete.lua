@@ -122,7 +122,7 @@ return {
 
             cmp.setup.cmdline(
                 { ":" },
-                { mapping = cmp.mapping.preset.cmdline(), sources = { name = "cmdline" }, { name = "path" } }
+                { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = "cmdline" }, { name = "path" }} }
             )
         end,
     }, -- Autocompletion plugin
@@ -132,10 +132,4 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    {
-        "David-Kunz/cmp-npm",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
 }
