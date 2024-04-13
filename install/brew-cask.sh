@@ -7,6 +7,7 @@ apps=(
     alfred
     altair-graphql-client
     firefox
+    font-victor-mono
     font-fira-code
     font-fontawesome
     google-chrome
