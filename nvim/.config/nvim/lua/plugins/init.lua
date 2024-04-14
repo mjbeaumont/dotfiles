@@ -4,9 +4,6 @@ return {
     "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 
     -- enhanced vim keymaps/motions
-    -- snippets
-    "L3MON4D3/LuaSnip", --snippet engine
-    "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
     -- Debugging
     "mfussenegger/nvim-dap",

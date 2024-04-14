@@ -1,0 +1,54 @@
+{
+    "describe": {
+        "prefix": "desc",
+        "body": "describe('${1:description}', () => {\n\t${0}\n})"
+    },
+    "expect": {
+      "prefix": "exp",
+      "body": "expect(${1:result}).${2}(${3:expectedResult})"
+    },
+    "test asynchronous": {
+        "prefix": "testa",
+        "body": "test('${1:description}', async () => {\n\t${0}\n})"
+    },
+    "test.todo": {
+        "prefix": "testt",
+        "body": "test.todo('${1:description}')"
+    },
+    "test synchronous": {
+        "prefix": "test",
+        "body": "test('${1:description}', () => {\n\t${0}\n})"
+    },
+    "before": {
+        "prefix": "bf",
+        "body": "before(async () => {\n\t${0}\n})"
+    },
+    "beforeAll": {
+        "prefix": "ba",
+        "body": "beforeAll(async () => {\n\t${0}\n})"
+    },
+    "beforeEach": {
+        "prefix": "bfe",
+        "body": "beforeEach(async () => {\n\t${0}\n})"
+    },
+    "after": {
+        "prefix": "aft",
+        "body": "after(() => {\n\t${0}\n})"
+    },
+    "afterEach": {
+        "prefix": "afe",
+        "body": "afterEach(() => {\n\t${0}\n})"
+    },
+    "mock": {
+       "prefix": "mock",
+       "body": "jest.mock('${0}')"
+    },
+    "spyOn": {
+        "prefix": "spy",
+        "body": "jest.spyOn(${1}, '${2}')"
+    },
+    "spyWithImplementation": {
+        "prefix": "spyi",
+        "body": "const ${1} = jest.spyOn(${2}, '${3}').mockImplementation(() => {${0}})"
+    }
+}

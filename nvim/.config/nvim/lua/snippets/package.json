@@ -1,0 +1,15 @@
+{
+	"name": "custom-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"typescript",
+          "javascript",
+          "typescriptreact"
+				],
+				"path": "./jest.json"
+			}
+		]
+	}
+}

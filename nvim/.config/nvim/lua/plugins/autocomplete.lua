@@ -15,6 +15,7 @@ return {
             end
 
             require("luasnip/loaders/from_vscode").lazy_load()
+            require("luasnip/loaders/from_vscode").lazy_load({ paths = "~/.config/nvim/lua/snippets" })
 
             local has_words_before = function()
                 local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -96,8 +97,8 @@ return {
                     end,
                 },
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
                     { name = "luasnip" },
+                    { name = "nvim_lsp" },
                     { name = "path" },
                     { name = "nvim_lsp_signature_help" },
                 }, {
@@ -122,7 +123,7 @@ return {
 
             cmp.setup.cmdline(
                 { ":" },
-                { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = "cmdline" }, { name = "path" }} }
+                { mapping = cmp.mapping.preset.cmdline(), sources = { { name = "cmdline" }, { name = "path" } } }
             )
         end,
     }, -- Autocompletion plugin
@@ -132,4 +133,7 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+    -- snippets
+    { "L3MON4D3/LuaSnip", version = "2.*", run = "make install_jsregexp" }, --snippet engine
+    "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 }
