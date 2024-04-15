@@ -37,11 +37,15 @@ return {
             local eslint = require("modules.lsp.eslint")
             local tsserver = require("modules.lsp.tsserver")
             local lua_ls = require("modules.lsp.lua_ls")
+            local jsonls = require("modules.lsp.jsonls")
+            local yamlls = require("modules.lsp.yamlls")
 
             lsp_settings.setup()
 
             lspconfig.eslint.setup(eslint.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.tsserver.setup(tsserver.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
+            lspconfig.jsonls.setup(jsonls.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
+            lspconfig.yamlls.setup(yamlls.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.lua_ls.setup(lua_ls.getOpts())
             vim.g.rustaceanvim = {
                 server = {
