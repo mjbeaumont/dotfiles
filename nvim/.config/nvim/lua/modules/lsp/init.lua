@@ -114,8 +114,8 @@ _G.formatting = function(bufnr)
     end, bufnr)
 end
 
-M.on_attach = function(client, bufnr)
-    lsp_keymaps(bufnr)
+M.on_attach = function(client)
+    lsp_keymaps()
     lsp_highlight_document(client)
 end
 
