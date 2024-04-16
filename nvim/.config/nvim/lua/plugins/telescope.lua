@@ -83,6 +83,13 @@ return {
             },
 
             {
+                "<Leader>fo",
+                ":lua require('telescope.builtin').buffers()<CR>",
+                desc = "Find Open Files",
+                silent = true,
+            },
+
+            {
                 "<Leader>fg",
                 ":lua require('telescope.builtin').live_grep()<CR>",
                 desc = "Find Text",
