@@ -31,38 +31,7 @@ yabai -m config bottom_padding               0
 yabai -m config left_padding                 10
 yabai -m config right_padding                0
 
-#
-# setup spaces
-#
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 4)'); do
-  yabai -m space --destroy 5
-done
-
-function setup_space {
-  local idx="$1"
-  local name="$2"
-  local space=
-  local num_displays=
-  echo "setup space $idx : $name"
-
-  space=$(yabai -m query --spaces --space "$idx")
-  num_displays=$(yabai -m query --displays | jq length)
-  if [ -z "$space" ]; then
-    yabai -m space --create
-  fi
-
-  yabai -m space "$idx" --label "$name"
-
-  if [[ $num_displays -eq 2 && idx -gt 2 ]]; then
-    yabai -m space "$idx" --display 2
-  fi
-}
-
-setup_space 1 tool
-setup_space 2 idle
-setup_space 3 web
-setup_space 4 code
-
+reset-yabai-spaces
 
 # window rules
 yabai -m rule --add app="^Code" space=code
