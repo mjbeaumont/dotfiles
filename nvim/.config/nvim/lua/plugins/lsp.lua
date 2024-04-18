@@ -61,7 +61,7 @@ return {
                         vim.keymap.set(mode, lhs, rhs, opts)
                     end
 
-                    bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+                    bufmap("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>")
                     bufmap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
                     bufmap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>")
                     bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")

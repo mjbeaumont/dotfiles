@@ -111,6 +111,19 @@ return {
             },
 
             {
+                "<Leader>fd",
+                ":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
+                desc = "Find diagnostics (current file)",
+                silent = true,
+            },
+            {
+                "<Leader>fD",
+                ":lua require('telescope.builtin').diagnostics()<CR>",
+                desc = "Find diagnostics (workspace)",
+                silent = true,
+            },
+
+            {
                 "<Leader>fs",
                 ":lua require('telescope.builtin').lsp_document_symbols()<CR>",
                 desc = "Find Symbols",
