@@ -39,6 +39,7 @@ apps=(
    koekeishiya/formulae/yabai
    zoxide
    zsh
+   zsh-vi-mode
 )
 
 brew tap "${taps[@]}"
