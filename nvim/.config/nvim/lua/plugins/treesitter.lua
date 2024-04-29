@@ -138,7 +138,6 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-textsubjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    "mfussenegger/nvim-ts-hint-textobject",
     {
         "chrisgrieser/nvim-various-textobjs",
         config = function()
