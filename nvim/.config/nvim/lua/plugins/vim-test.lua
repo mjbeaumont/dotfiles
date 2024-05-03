@@ -1,6 +1,6 @@
 return {
     "vim-test/vim-test",
-    lazy = true,
+    event = "BufEnter",
     dependencies = { "akinsho/toggleterm.nvim" },
     config = function()
         vim.g["test#javascript#jest#file_pattern"] = "\\vtest\\.(js|jsx|ts|tsx)$"
@@ -15,6 +15,7 @@ return {
             local currentBufferFilePath = vim.fn.expand("%:~:.")
 
             local pkgJsonParentDir = lsputil.find_package_json_ancestor(currentBufferFilePath)
+            print(pkgJsonParentDir)
             return pkgJsonParentDir
         end
 
