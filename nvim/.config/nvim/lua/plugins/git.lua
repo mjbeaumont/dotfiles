@@ -55,8 +55,8 @@ return {
     {
         "f-person/git-blame.nvim",
         keys = {
-            { "<Leader>gb", ":GitBlameToggle<CR>", desc = "Toggle Git Blame" },
-            { "<Leader>gbo", ":GitBlameOpenCommitURL<CR>", desc = "Open Commit URL " },
+            { "<Leader>gb", ":GitBlameToggle<CR>", desc = "Toggle Git Blame", silent = true },
+            { "<Leader>gbo", ":GitBlameOpenCommitURL<CR>", desc = "Open Commit URL ", silent = true },
         },
     },
     {
