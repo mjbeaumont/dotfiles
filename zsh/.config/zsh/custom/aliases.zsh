@@ -25,6 +25,6 @@ alias tx="tmuxinator"
 alias vim=nvim
 alias vimc="nvim ~/.config/nvim/init.vim"
 alias vimgolf="docker run --rm -it -e "key=YOUR_VIMGOLF_KEY" hettomei/vimgolf"
-alias ry="reset-yabai-spaces"
+alias ry="reset-yabai-spaces && yabai -m rule --apply"
 alias chromedebug="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug"
 alias rmnm="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"

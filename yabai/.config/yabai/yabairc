@@ -34,8 +34,7 @@ yabai -m config right_padding                0
 reset-yabai-spaces
 
 # window rules
-yabai -m rule --add app="^Code" space=code
-yabai -m rule --add app="^kitty" space=code
+yabai -m rule --add app="^kitty" space=4 label=kitty
 yabai -m rule --add app="^Google Chrome" space=web
 yabai -m rule --add app="^Slack" space=tool
 yabai -m rule --add app="^Spotify$" space=tool
