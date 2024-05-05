@@ -1,6 +1,7 @@
 return {
     "goolord/alpha-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-telescope/telescope.nvim" },
+    lazy = false,
     opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings

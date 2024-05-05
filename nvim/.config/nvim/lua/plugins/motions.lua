@@ -7,18 +7,9 @@ return {
     "moll/vim-bbye",
     {
         "mfussenegger/nvim-treehopper",
-        keys = {
-            {
-                "m",
-                ":<C-U>lua require('tsht').nodes()<CR>",
-                noremap = false,
-                silent = true,
-            },
-            {
-                "m",
-                ":lua require('tsht').nodes()<CR>",
-                silent = true,
-            },
-        },
+        config = function()
+            vim.keymap.set("o", "m", [[:<C-u>lua require('tsht').nodes()<CR>]], { silent = true, remap = true })
+            vim.keymap.set("x", "m", [[:lua require('tsht').nodes()<CR>]], { silent = true })
+        end,
     },
 }
