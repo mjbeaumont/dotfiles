@@ -2,7 +2,7 @@ return {
     "tpope/vim-abolish",
     "tpope/vim-commentary",
     "tpope/vim-repeat",
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
     "wellle/targets.vim",
     "moll/vim-bbye",
     {
