@@ -17,6 +17,7 @@ plugins=(
     docker-compose
     frontend-search
     git 
+    zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -31,8 +32,6 @@ function zvm_after_init() {
   # initialize fzf
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
-
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # User configuration
 
@@ -51,3 +50,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Created by `pipx` on 2024-10-12 02:11:15
+export PATH="$PATH:/Users/matthewbeaumont/.local/bin"
