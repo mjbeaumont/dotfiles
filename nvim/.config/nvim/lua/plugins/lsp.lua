@@ -35,7 +35,7 @@ return {
 
             local lsp_settings = require("modules.lsp")
             local eslint = require("modules.lsp.eslint")
-            local tsserver = require("modules.lsp.tsserver")
+            local ts_ls = require("modules.lsp.ts_ls")
             local lua_ls = require("modules.lsp.lua_ls")
             local jsonls = require("modules.lsp.jsonls")
             local yamlls = require("modules.lsp.yamlls")
@@ -43,10 +43,27 @@ return {
             lsp_settings.setup()
 
             lspconfig.eslint.setup(eslint.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
-            lspconfig.tsserver.setup(tsserver.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
+            lspconfig.ts_ls.setup(ts_ls.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.jsonls.setup(jsonls.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.yamlls.setup(yamlls.getOpts(lsp_settings.on_attach, lsp_settings.capabilities))
             lspconfig.lua_ls.setup(lua_ls.getOpts())
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pyflakes = { enabled = true },
+                            pylint = { enabled = true },
+                            black = { enabled = true },
+                            isort = { enabled = true },
+                            jedi = { enabled = true },
+                        },
+                    },
+                },
+                server = {
+                    on_attach = lsp_settings.on_attach,
+                    capabilities = lsp_settings.capabilities,
+                },
+            })
             vim.g.rustaceanvim = {
                 server = {
                     on_attach = lsp_settings.on_attach,
