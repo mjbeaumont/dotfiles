@@ -135,18 +135,16 @@ return {
         },
     },
     "nvim-treesitter/playground",
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    "echasnovski/mini.ai",
     "RRethy/nvim-treesitter-textsubjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
     {
         "chrisgrieser/nvim-various-textobjs",
-        config = function()
-            local status_ok, various_textobjs = pcall(require, "various-textobjs")
-            if not status_ok then
-                return
-            end
-
-            various_textobjs.setup({ useDefaultKeymaps = true })
-        end,
+        event = "VeryLazy",
+        opts = {
+            keymaps = {
+                useDefaults = true,
+            },
+        },
     },
 }
