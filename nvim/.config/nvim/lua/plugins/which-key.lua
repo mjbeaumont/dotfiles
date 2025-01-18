@@ -10,17 +10,4 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
     },
-    config = function()
-        local wk = require("which-key")
-        wk.register({
-            p = {
-                name = "Open Popup",
-                d = "Open LazyDocker",
-            },
-            g = {
-                name = "Git",
-                y = "Yank current Github link to clipboard",
-            },
-        }, { prefix = "<Leader>" })
-    end,
 }
