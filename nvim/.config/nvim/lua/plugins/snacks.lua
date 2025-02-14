@@ -10,6 +10,7 @@ return {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
         explorer = { enabled = true },
+        image = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
         picker = { enabled = true, ui_select = true },
@@ -21,6 +22,13 @@ return {
         words = { enabled = true },
     },
     keys = {
+        {
+            "<Leader>ff",
+            function()
+                Snacks.picker.files()
+            end,
+            desc = "Find Open Files",
+        },
         {
             "<Leader>fo",
             function()
@@ -55,6 +63,20 @@ return {
                 Snacks.picker.diagnostics_buffer()
             end,
             desc = "Diagnostics",
+        },
+        {
+            "<leader>gg",
+            function()
+                Snacks.lazygit()
+            end,
+            desc = "Lazygit",
+        },
+        {
+            "<leader>e",
+            function()
+                Snacks.explorer()
+            end,
+            desc = "Lazygit",
         },
     },
 }

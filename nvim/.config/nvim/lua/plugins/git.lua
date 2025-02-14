@@ -16,17 +16,6 @@ return {
         end,
     },
     {
-        "kdheepak/lazygit.nvim",
-        keys = {
-            {
-                "<Leader>gg",
-                ":LazyGit<CR>",
-                desc = "Open LazyGit",
-                silent = true,
-            },
-        },
-    },
-    {
         "ruifm/gitlinker.nvim",
         dependencies = "nvim-lua/plenary.nvim",
         config = function()

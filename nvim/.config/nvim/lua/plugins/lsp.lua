@@ -85,7 +85,6 @@ return {
                     bufmap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
                     bufmap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
                     bufmap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
-                    bufmap("n", "ga", "<cmd>:CodeActionMenu<CR>")
                     bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>")
                     bufmap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
                     bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>")
