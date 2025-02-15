@@ -51,4 +51,6 @@ set_km("n", "<Leader>l", "<C-w><C-l>")
 
 set_km("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
 
+set_km("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+
 set_km("t", "<C-o>", "<C-\\><C-n>")
