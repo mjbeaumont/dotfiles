@@ -9,11 +9,17 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         dashboard = { enabled = true },
-        explorer = { enabled = true },
+        explorer = {
+            enabled = true,
+            win = { list = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } }, ["<c-h>"] = "explorer_up" } } },
+        },
         image = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
-        picker = { enabled = true, ui_select = true },
+        picker = {
+            enabled = true,
+            ui_select = true,
+        },
         notifier = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = true },
@@ -72,7 +78,7 @@ return {
             desc = "Lazygit",
         },
         {
-            "<leader>e",
+            "<leader>bf",
             function()
                 Snacks.explorer()
             end,
