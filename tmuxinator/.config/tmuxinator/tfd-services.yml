@@ -11,7 +11,7 @@ windows:
       layout: main-horizontal
       panes: 
         - start_database: 
-          - cd domains/leads/tosa && docker-compose up tax-rate-api pricing-api dynamodb dynamodb-admin
+          - cd domains/leads/tosa && docker compose up product-api tax-rate-api pricing-api dynamodb dynamodb-admin
         - start_server: 
           -  pnpm --filter leads-tosa develop
   - code: nvim 
