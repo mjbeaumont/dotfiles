@@ -17,8 +17,9 @@ return {
         indent = { enabled = true },
         input = { enabled = true },
         picker = {
-            enabled = true,
+            --enabled = false,
             ui_select = true,
+            sources = { explorer = { hidden = true }, files = { hidden = true } }
         },
         notifier = { enabled = true },
         quickfile = { enabled = true },
