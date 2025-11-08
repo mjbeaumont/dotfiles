@@ -28,6 +28,7 @@ return {
                     "php",
                     "prisma",
                     "python",
+                    "regex",
                     "rust",
                     "scss",
                     "todotxt",
