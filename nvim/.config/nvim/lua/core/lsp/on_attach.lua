@@ -55,7 +55,27 @@ M.setup = function()
             map("n", "<leader>rn", vim.lsp.buf.rename)
             map("n", "ga", vim.lsp.buf.code_action)
 
-            -- Optional: eslint fix on save
+            -- highlight references to the symbol you are hovering over
+            if client.server_capabilities.documentHighlightProvider then
+                local group = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+
+                vim.api.nvim_create_autocmd("CursorHold", {
+                    group = group,
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.document_highlight()
+                    end,
+                })
+
+                vim.api.nvim_create_autocmd("CursorMoved", {
+                    group = group,
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.clear_references()
+                    end,
+                })
+            end -- Optional: eslint fix on save
+
             if client.name == "eslint" then
                 vim.api.nvim_create_autocmd("BufWritePost", {
                     buffer = bufnr,

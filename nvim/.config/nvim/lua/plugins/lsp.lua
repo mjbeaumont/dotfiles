@@ -14,18 +14,6 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = { "jose-elias-alvarez/nvim-lsp-ts-utils" },
-        config = function()
-            local lsp_settings = require("modules.lsp")
-
-            lsp_settings.setup()
-
-            vim.g.rustaceanvim = {
-                server = {
-                    on_attach = lsp_settings.on_attach,
-                    capabilities = lsp_settings.capabilities,
-                },
-            }
-        end,
     },
     {
         "jose-elias-alvarez/nvim-lsp-ts-utils",
