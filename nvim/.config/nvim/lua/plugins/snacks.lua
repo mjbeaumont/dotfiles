@@ -12,12 +12,10 @@ return {
         explorer = {
             enabled = true,
         },
-        -- gh = {
-        --     enabled = true,
-        -- },
         image = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
+        lazygit = { enabled = true, configure = true },
         picker = {
             --enabled = false,
             ui_select = true,
