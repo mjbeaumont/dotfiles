@@ -3,11 +3,13 @@ local M = {}
 local setup_diagnostics = function()
     -- diagnostic settings
     local diagnostic_config = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.INFO] = "",
-            [vim.diagnostic.severity.HINT] = "",
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = "",
+                [vim.diagnostic.severity.WARN] = "",
+                [vim.diagnostic.severity.INFO] = "",
+                [vim.diagnostic.severity.HINT] = "",
+            },
         },
         virtual_text = {
             prefix = "●",
@@ -53,8 +55,5 @@ M.setup = function()
     setup_diagnostics()
     style_popups()
 end
-
-
-
 
 return M

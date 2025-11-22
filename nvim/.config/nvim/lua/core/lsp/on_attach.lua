@@ -69,6 +69,8 @@ M.setup = function()
             map("n", "<leader>rn", vim.lsp.buf.rename)
             map("n", "ga", vim.lsp.buf.code_action)
 
+            map("n", "<leader>l", ":EslintFixAll<cr>")
+
             -- highlight references to the symbol you are hovering over
             if client.server_capabilities.documentHighlightProvider then
                 local group = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
@@ -88,7 +90,7 @@ M.setup = function()
                         vim.lsp.buf.clear_references()
                     end,
                 })
-            end -- Optional: eslint fix on save
+            end
 
             if client.name == "eslint" then
                 vim.api.nvim_create_autocmd("BufWritePost", {
