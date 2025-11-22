@@ -26,12 +26,6 @@ return {
 
             gitlinker.setup()
 
-            vim.api.nvim_set_keymap(
-                "n",
-                "<leader>go",
-                '<cmd>lua require"gitlinker".get_repo_url()<cr>',
-                { silent = true, desc = "Open line in GitHub" }
-            )
             -- can't use keys here because this command exceeds the max LHS length limit
             vim.api.nvim_set_keymap(
                 "n",
@@ -56,6 +50,7 @@ return {
             "nvim-telescope/telescope.nvim",
             "nvim-tree/nvim-web-devicons",
         },
+        picker = "snacks",
         config = function()
             require("octo").setup({ suppress_missing_scope = {
                 project_v2 = true,
@@ -63,11 +58,6 @@ return {
         end,
         cmd = "Octo",
         keys = {
-            {
-                "<Leader>gr",
-                ":Octo search is:pr is:open review-requested:@me archived:false<CR>",
-                desc = "Open PR Review Requests",
-            },
             {
                 "<Leader>gm",
                 ":Octo search is:pr is:open author:@me archived:false<CR>",

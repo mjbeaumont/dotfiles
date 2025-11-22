@@ -11,15 +11,18 @@ return {
         dashboard = { enabled = true },
         explorer = {
             enabled = true,
-            win = { list = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } }, ["<c-h>"] = "explorer_up" } } },
         },
+        -- gh = {
+        --     enabled = true,
+        -- },
         image = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
         picker = {
             --enabled = false,
             ui_select = true,
-            sources = { explorer = { hidden = true }, files = { hidden = true } }
+            sources = { explorer = { hidden = true }, files = { hidden = true } },
+            win = { list = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } }, ["<c-h>"] = "explorer_up" } } },
         },
         notifier = { enabled = true },
         quickfile = { enabled = true },
@@ -77,6 +80,13 @@ return {
                 Snacks.lazygit()
             end,
             desc = "Lazygit",
+        },
+        {
+            "<leader>gp",
+            function()
+                Snacks.picker.gh_pr()
+            end,
+            desc = "View Pull Requests"
         },
         {
             "<leader>bf",

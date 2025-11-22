@@ -1,0 +1,6 @@
+require("core/autocommands")
+require("core/functions")
+require("core/keymaps")
+require("core/lazy_nvim")
+require("core/options")
+require("core/lsp")
