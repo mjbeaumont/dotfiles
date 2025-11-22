@@ -41,6 +41,12 @@ M.setup = function()
             map("n", "gi", function()
                 require("snacks.picker").lsp_implementations()
             end)
+            map("n", "gX", function()
+                require("snacks.picker").diagnostics()
+            end)
+            map("n", "gx", function()
+                require("snacks.picker").diagnostics_buffer()
+            end)
 
             map("n", "gh", function()
                 vim.diagnostic.open_float(nil, {
