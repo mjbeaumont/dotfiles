@@ -27,13 +27,6 @@ local setup_diagnostics = function()
     }
 
     vim.diagnostic.config(diagnostic_config)
-
-    -- Automatic diagnostics on hover
-    vim.api.nvim_create_autocmd("CursorHold", {
-        callback = function()
-            vim.diagnostic.open_float(nil, { focus = false })
-        end,
-    })
 end
 
 local style_popups = function()
@@ -60,5 +53,8 @@ M.setup = function()
     setup_diagnostics()
     style_popups()
 end
+
+
+
 
 return M

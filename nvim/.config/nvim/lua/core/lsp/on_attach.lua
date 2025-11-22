@@ -1,4 +1,4 @@
--- ~/.config/nvim/lua/lsp/global_on_attach.lua
+local utils = require("core/lsp/utils")
 local M = {}
 
 M.setup = function()
@@ -42,6 +42,14 @@ M.setup = function()
                 require("snacks.picker").lsp_implementations()
             end)
 
+            map("n", "gh", function()
+                vim.diagnostic.open_float(nil, {
+                    focusable = true,
+                    scope = "line",
+                    close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave" },
+                })
+            end)
+
             map("n", "gD", function()
                 vim.lsp.buf.declaration()
             end)
@@ -78,10 +86,8 @@ M.setup = function()
 
             if client.name == "eslint" then
                 vim.api.nvim_create_autocmd("BufWritePost", {
-                    buffer = bufnr,
-                    callback = function()
-                        vim.cmd("EslintFixAll")
-                    end,
+                    pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+                    command = "silent! EslintFixAll",
                 })
             end
         end,
