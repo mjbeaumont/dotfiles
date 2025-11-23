@@ -1,4 +1,3 @@
-local utils = require("core/lsp/utils")
 local M = {}
 
 M.setup = function()
