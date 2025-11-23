@@ -17,7 +17,7 @@ return {
         input = { enabled = true },
         lazygit = { enabled = true, configure = true },
         picker = {
-            --enabled = false,
+            hidden = true,
             ui_select = true,
             sources = { explorer = { hidden = true }, files = { hidden = true } },
             win = { list = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } }, ["<c-h>"] = "explorer_up" } } },
@@ -84,7 +84,7 @@ return {
             function()
                 Snacks.picker.gh_pr()
             end,
-            desc = "View Pull Requests"
+            desc = "View Pull Requests",
         },
         {
             "<leader>bf",
