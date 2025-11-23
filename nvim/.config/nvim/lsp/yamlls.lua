@@ -3,17 +3,15 @@ local capabilities = require("core/lsp/capabilities")
 return {
     settings = {
         yaml = {
-            validate = { enabled = true },
-            schemaStore = {
-                enable = false,
-                url = "",
+            validate = true,
+            hover = true,
+            completion = true,
+            schemas = {
+                -- Explicitly include only the schemas you need
+                ["https://json.schemastore.org/github-workflow.json"] = ".github/**/*.{yml,yaml}",
+                ["https://json.schemastore.org/docker-compose.json"] = "{,docker-}-compose*.{yml,yaml}",
+                ["https://json.schemastore.org/kustomization.json"] = "kustomization*.{yml,yaml}",
             },
-            schemas = require("schemastore").json.schemas({
-               'docker-compose.yaml',
-               'kustomization.yaml',
-               'github-action.yaml',
-               'github-workflow.yaml',
-            }),
         },
     },
     capabilities = capabilities,
