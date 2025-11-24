@@ -93,5 +93,12 @@ return {
             end,
             desc = "Lazygit",
         },
+        {
+            "<leader>sn",
+            function()
+                Snacks.picker.notifications()
+            end,
+            desc = "Show Notifications",
+        },
     },
 }
