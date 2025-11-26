@@ -3,11 +3,21 @@ return {
     event = "VeryLazy",
     init = function()
         vim.o.timeout = true
-        vim.o.timeoutlen = 500
+        vim.o.timeoutlen = 750
     end,
     opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+        delay = 750,
+        spec = {
+            -- snacks.lua, bufferline.lua, debug.lua
+            { "<leader>b", group = "Buffer" },
+            -- debug.lua
+            { "<leader>d", group = "Debug" },
+            -- snacks.lua
+            { "<leader>f", group = "Find" },
+            -- snacks.lua, git.lua, lsp.lua
+            { "<leader>g", group = "Git" },
+            -- vim-test.lua
+            { "<leader>t", group = "Test" },
+        },
     },
 }
