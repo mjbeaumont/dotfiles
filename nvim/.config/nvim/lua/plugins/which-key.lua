@@ -16,6 +16,8 @@ return {
             { "<leader>f", group = "Find" },
             -- snacks.lua, git.lua, lsp.lua
             { "<leader>g", group = "Git" },
+            -- toggleterm.lua
+            { "<leader>o", group = "Open" },
             -- vim-test.lua
             { "<leader>t", group = "Test" },
         },

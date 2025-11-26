@@ -10,7 +10,7 @@ api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- disable folding 
+-- disable folding
 local nofold = vim.api.nvim_create_augroup("nofold_files", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -21,6 +21,18 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.foldenable = false
         vim.opt_local.foldmethod = "manual"
         vim.opt_local.foldexpr = "0"
+    end,
+})
+
+-- yaml indent settings
+vim.api.nvim_create_autocmd("FileType", {
+    group = general,
+    pattern = { "yaml", "yml" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
     end,
 })
 

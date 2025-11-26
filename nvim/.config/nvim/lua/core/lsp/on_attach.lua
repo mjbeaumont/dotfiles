@@ -68,7 +68,7 @@ M.setup = function()
             map("n", "<leader>rn", vim.lsp.buf.rename)
             map("n", "ga", vim.lsp.buf.code_action)
 
-            map("n", "<leader>l", ":EslintFixAll<cr>")
+            map("n", "<leader>ef", ":EslintFixAll<cr>")
 
             -- highlight references to the symbol you are hovering over
             if client.server_capabilities.documentHighlightProvider then
