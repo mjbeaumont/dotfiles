@@ -7,6 +7,7 @@ apps=(
    ansible
    awscli
    docker-compose
+   exa
    fontconfig
    freetype
    fzf
@@ -20,6 +21,7 @@ apps=(
    lazydocker
    lazygit
    luajit
+   navi
    neovim
    node
    nvm
