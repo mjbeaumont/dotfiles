@@ -12,7 +12,7 @@ windows:
       layout: main-horizontal
       panes:
         - start_database:
-          - docker-compose up postgres
+          - docker compose up postgres
         - start_server:
           - npm run start-dev
   - code: nvm use && nvim
