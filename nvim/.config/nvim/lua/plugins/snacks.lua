@@ -4,6 +4,13 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+        styles = {
+            notification = {
+                wo = {
+                    wrap = true,
+                },
+            },
+        },
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
@@ -22,7 +29,7 @@ return {
             sources = { explorer = { hidden = true }, files = { hidden = true } },
             win = { list = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } }, ["<c-h>"] = "explorer_up" } } },
         },
-        notifier = { enabled = true },
+        notifier = { enabled = true, style = "fancy" },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },

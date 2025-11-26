@@ -66,4 +66,26 @@ groups['LSPReferenceText'] =  { bg = palette.my_ref_bg }
 groups['LSPReferenceRead'] =  { bg = palette.my_ref_bg }
 groups['LSPReferenceWrite'] =  { bg = palette.my_ref_bg }
 
+-- Snacks notifier
+groups['SnacksNotifierInfo'] = { fg = palette.my_white, bg = palette.my_background }
+groups['SnacksNotifierWarn'] = { fg = palette.my_white, bg = palette.my_background }
+groups['SnacksNotifierError'] = { fg = palette.my_white, bg = palette.my_background }
+groups['SnacksNotifierDebug'] = { fg = palette.my_white, bg = palette.my_background }
+groups['SnacksNotifierTrace'] = { fg = palette.my_white, bg = palette.my_background }
+groups['SnacksNotifierIconInfo'] = { fg = palette.my_info }
+groups['SnacksNotifierIconWarn'] = { fg = palette.my_warning }
+groups['SnacksNotifierIconError'] = { fg = palette.my_error }
+groups['SnacksNotifierIconDebug'] = { fg = palette.my_hint }
+groups['SnacksNotifierIconTrace'] = { fg = palette.my_purple }
+groups['SnacksNotifierBorderInfo'] = { fg = palette.my_info }
+groups['SnacksNotifierBorderWarn'] = { fg = palette.my_warning }
+groups['SnacksNotifierBorderError'] = { fg = palette.my_error }
+groups['SnacksNotifierBorderDebug'] = { fg = palette.my_hint }
+groups['SnacksNotifierBorderTrace'] = { fg = palette.my_purple }
+groups['SnacksNotifierTitleInfo'] = { fg = palette.my_info }
+groups['SnacksNotifierTitleWarn'] = { fg = palette.my_warning }
+groups['SnacksNotifierTitleError'] = { fg = palette.my_error }
+groups['SnacksNotifierTitleDebug'] = { fg = palette.my_hint }
+groups['SnacksNotifierTitleTrace'] = { fg = palette.my_purple }
+
 Highlite.generate("highlite", groups, terminal_palette)
