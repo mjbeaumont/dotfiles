@@ -6,15 +6,14 @@
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias apifix="sed -i '' 's/\.95/\.65/g' src/lib/product-combination.js; sed -i '' 's/1\.05/1\.25/g' src/lib/product-combination.js;"
-alias apiunfix="sed -i '' 's/\.65/\.95/g' src/lib/product-combination.js; sed -i '' 's/1\.25/1\.05/g' src/lib/product-combination.js"
 alias bsrestart="brew services restart"
 alias bsstart="brew services start"
 alias bsstop="brew services stop"
 alias gafz="git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
-alias l=ls -la
-alias reload_db="~/reload_db.sh"
-alias restart_nodemon="lsof -it tcp:9229 | xargs kill -9"
+alias l='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first'
+alias ll='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -l --git -h'
+alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a'
+alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
 alias rz=". ~/.zshrc"
 alias tmux="tmux -2"
 alias ta="t a -t"
