@@ -13,6 +13,11 @@ return {
         hostInfo = "neovim",
         tsserver = { tsdk = tsdk },
     },
+    settings = {
+        completions = {
+            completeFunctionCalls = true,
+        },
+    },
     capabilities = capabilities,
     flags = {
         debounce_text_changes = 150,
