@@ -16,26 +16,6 @@ return {
         end,
     },
     {
-        "ruifm/gitlinker.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function()
-            local status_ok, gitlinker = pcall(require, "gitlinker")
-            if not status_ok then
-                return
-            end
-
-            gitlinker.setup()
-
-            -- can't use keys here because this command exceeds the max LHS length limit
-            vim.api.nvim_set_keymap(
-                "n",
-                "<leader>go",
-                '<cmd>lua require"gitlinker".get_repo_url({action_callback = require"gitlinker.actions".open_in_browser})<cr>',
-                { silent = true, desc = "Open Line in Github" }
-            )
-        end,
-    },
-    {
         "f-person/git-blame.nvim",
         lazy = false,
         keys = {

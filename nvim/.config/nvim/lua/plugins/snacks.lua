@@ -19,6 +19,7 @@ return {
         explorer = {
             enabled = true,
         },
+        gitbrowse = { enabled = true },
         image = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
@@ -85,6 +86,25 @@ return {
                 Snacks.lazygit()
             end,
             desc = "Lazygit",
+        },
+        {
+            "<leader>gy",
+            function()
+                Snacks.gitbrowse.open({
+                    open = function(url)
+                        vim.fn.setreg("+", url)
+                        Snacks.notifier("Yanked URL to clipboard:" .. url, vim.log.levels.INFO)
+                    end,
+                })
+            end,
+            desc = "Yank link to remote git repo",
+        },
+        {
+            "<leader>go",
+            function()
+              Snacks.gitbrowse()
+            end,
+            desc = "Open file/line on Github"
         },
         {
             "<leader>gp",
