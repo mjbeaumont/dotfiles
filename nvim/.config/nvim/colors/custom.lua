@@ -26,6 +26,18 @@ groups['Info'] =  { fg = palette.my_info }
 groups['Hint'] =  { fg = palette.my_hint }
 groups['Warning'] =  { fg = palette.my_warning }
 
+-- Diagnostic virtual text (no background, just colored text)
+groups['DiagnosticVirtualTextError'] = { fg = palette.my_error }
+groups['DiagnosticVirtualTextWarn'] = { fg = palette.my_warning }
+groups['DiagnosticVirtualTextInfo'] = { fg = palette.my_info }
+groups['DiagnosticVirtualTextHint'] = { fg = palette.my_hint }
+
+-- Diagnostic underlines (squigglies)
+groups['DiagnosticUnderlineError'] = { sp = palette.my_error, undercurl = true }
+groups['DiagnosticUnderlineWarn'] = { sp = palette.my_warning, undercurl = true }
+groups['DiagnosticUnderlineInfo'] = { sp = palette.my_info, undercurl = true }
+groups['DiagnosticUnderlineHint'] = { sp = palette.my_hint, undercurl = true }
+
 groups['@variable'] =  { fg = palette.my_white }
 groups['@include'] =  { fg = palette.my_red }
 groups['@operator'] =  { fg = palette.my_red }

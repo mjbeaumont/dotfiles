@@ -16,6 +16,9 @@ pip3 install click
 # install fzf keybindings
 $(brew --prefix)/opt/fzf/install
 
+# compile terminfo for undercurl support in kitty/tmux/nvim
+"$(dirname "$0")/kitty-tmux-nvim-undercurl-fix.sh"
+
 # enable focus follows mouse
 defaults write com.apple.Terminal FocusFollowsMouse -bool true
 

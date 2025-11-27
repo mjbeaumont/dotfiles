@@ -1,0 +1,5 @@
+tmux-256color|tmux with 256 colors and undercurl,
+    sitm=\E[3m, ritm=\E[23m,
+    Smulx=\E[4\:%p1%dm,
+    Setulc=\E[58\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&%d\:%p1%{255}%&%d%;m,
+    use=tmux-256color,
