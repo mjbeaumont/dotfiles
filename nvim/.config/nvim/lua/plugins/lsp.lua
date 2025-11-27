@@ -11,14 +11,7 @@ return {
             "neovim/nvim-lspconfig",
         },
     },
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = { "jose-elias-alvarez/nvim-lsp-ts-utils" },
-    },
-    {
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-        keys = { { "<Leader>gi", ":TSLspImportAll<CR>", silent = true, desc = "Import All" } },
-    },
+    "neovim/nvim-lspconfig",
     "b0o/schemastore.nvim",
     {
         "mrcjkb/rustaceanvim",
