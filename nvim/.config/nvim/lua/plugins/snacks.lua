@@ -127,5 +127,39 @@ return {
             end,
             desc = "Show Notifications",
         },
+        {
+            "<leader>gb",
+            function()
+                Snacks.git.blame_line()
+            end,
+            desc = "Git Blame Line",
+        },
+        {
+            "<leader>gB",
+            function()
+                Snacks.picker.git_log_line()
+            end,
+            desc = "Git Log for Line",
+        },
+        {
+            "<leader>gbo",
+            function()
+                local file = vim.fn.expand("%")
+                local line = vim.fn.line(".")
+                local cmd = string.format("git blame -L %d,%d --porcelain %s | head -1 | cut -d' ' -f1", line, line, file)
+                local commit = vim.fn.system(cmd):gsub("%s+", "")
+                if commit and commit ~= "" and not commit:match("^0+$") then
+                    local remote_url = vim.fn.system("git remote get-url origin"):gsub("%s+", "")
+                    local repo = remote_url:match("github.com[:/](.+)%.git")
+                    if repo then
+                        local url = string.format("https://github.com/%s/commit/%s", repo, commit)
+                        vim.ui.open(url)
+                    end
+                else
+                    vim.notify("Line not yet committed", vim.log.levels.WARN)
+                end
+            end,
+            desc = "Open Commit URL for Line",
+        },
     },
 }
