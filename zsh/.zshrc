@@ -51,7 +51,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Created by `pipx` on 2024-10-12 02:11:15
-export PATH="$PATH:/Users/matthewbeaumont/.local/bin"
-
 [ -f ~/.config/.private_env ] && source ~/.config/.private_env

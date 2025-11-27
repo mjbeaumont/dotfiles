@@ -24,10 +24,6 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-kill_port() {
-  kill -9 $(lsof -t -i:$1)
-}
-
 termcolors() {
     for i in {0..255}; do
         printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
