@@ -1,4 +1,5 @@
 return {
+    -- LSP core
     {
         "mason-org/mason.nvim",
         opts = {},
@@ -17,5 +18,17 @@ return {
         "mrcjkb/rustaceanvim",
         version = "^4",
         ft = { "rust" },
+    },
+
+    -- Diagnostics
+    {
+        "dmmulroy/ts-error-translator.nvim",
+        opts = {},
+    },
+    {
+        "kosayoda/nvim-lightbulb",
+        opts = {
+            autocmd = { enabled = true },
+        },
     },
 }
