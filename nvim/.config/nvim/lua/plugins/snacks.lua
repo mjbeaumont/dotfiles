@@ -81,6 +81,13 @@ return {
             desc = "Diagnostics",
         },
         {
+            "<leader>fn",
+            function()
+                Snacks.picker.notifications()
+            end,
+            desc = "Show Notifications",
+        },
+        {
             "<leader>gg",
             function()
                 Snacks.lazygit()
@@ -119,13 +126,6 @@ return {
                 Snacks.explorer()
             end,
             desc = "Lazygit",
-        },
-        {
-            "<leader>sn",
-            function()
-                Snacks.picker.notifications()
-            end,
-            desc = "Show Notifications",
         },
         {
             "<leader>gb",
