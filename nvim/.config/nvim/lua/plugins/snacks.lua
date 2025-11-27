@@ -32,6 +32,7 @@ return {
         },
         notifier = { enabled = true, style = "fancy" },
         quickfile = { enabled = true },
+        scratch = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
@@ -88,6 +89,13 @@ return {
             desc = "Show Notifications",
         },
         {
+            "<leader>fs",
+            function()
+                Snacks.picker.scratch()
+            end,
+            desc = "Show Notifications",
+        },
+        {
             "<leader>gg",
             function()
                 Snacks.lazygit()
@@ -109,9 +117,9 @@ return {
         {
             "<leader>go",
             function()
-              Snacks.gitbrowse()
+                Snacks.gitbrowse()
             end,
-            desc = "Open file/line on Github"
+            desc = "Open file/line on Github",
         },
         {
             "<leader>gp",
@@ -146,7 +154,8 @@ return {
             function()
                 local file = vim.fn.expand("%")
                 local line = vim.fn.line(".")
-                local cmd = string.format("git blame -L %d,%d --porcelain %s | head -1 | cut -d' ' -f1", line, line, file)
+                local cmd =
+                    string.format("git blame -L %d,%d --porcelain %s | head -1 | cut -d' ' -f1", line, line, file)
                 local commit = vim.fn.system(cmd):gsub("%s+", "")
                 if commit and commit ~= "" and not commit:match("^0+$") then
                     local remote_url = vim.fn.system("git remote get-url origin"):gsub("%s+", "")
@@ -160,6 +169,13 @@ return {
                 end
             end,
             desc = "Open Commit URL for Line",
+        },
+        {
+            "<leader>.",
+            function()
+                Snacks.scratch.open()
+            end,
+            "Toggle Scratch Buffer",
         },
     },
 }
