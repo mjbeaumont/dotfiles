@@ -4,11 +4,7 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
---Remap space as leader key
 map("", "<Space>", "<Nop>")
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 map("n", "Q", "<Nop>")
 
 -- Center cursor after jumps
