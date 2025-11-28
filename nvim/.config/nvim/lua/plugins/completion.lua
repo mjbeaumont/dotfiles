@@ -26,7 +26,14 @@ return {
                 default = { "lsp", "path", "snippets", "buffer" },
             },
             cmdline = {
-                keymap = { preset = "inherit" },
+                keymap = {
+                    preset = "none",
+                    ["<C-j>"] = { "select_next", "fallback" },
+                    ["<C-k>"] = { "select_prev", "fallback" },
+                    ["<C-space>"] = { "show" },
+                    ["<C-e>"] = { "cancel", "fallback" },
+                    ["<Tab>"] = { "accept", "fallback" },
+                },
                 completion = { menu = { auto_show = true } },
             },
             completion = {
