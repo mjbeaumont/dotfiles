@@ -36,8 +36,29 @@ dap.configurations.typescript = {
         name = "Attach to process",
         type = "pwa-node",
         request = "attach",
-        -- processId = require("dap.utils").pick_process,
-        cwd = "${workspaceFolder}",
+        processId = require("dap.utils").pick_process,
+        port = 9229,
+        restart = true,
+        cwd = function()
+            return vim.fn.fnamemodify(vim.fn.findfile("package.json", vim.fn.expand("%:p:h") .. ";"), ":p:h")
+        end,
+        skipFiles = { "<node_internals>/**" },
+        sourceMaps = true,
+        resolveSourceMapLocations = nil,
+        sourceMapPathOverrides = {},
+    },
+    {
+        name = "Attach to process by PID",
+        type = "pwa-node",
+        request = "attach",
+        processId = require("dap.utils").pick_process,
+        cwd = function()
+            return vim.fn.fnamemodify(vim.fn.findfile("package.json", vim.fn.expand("%:p:h") .. ";"), ":p:h")
+        end,
+        skipFiles = { "<node_internals>/**" },
+        sourceMaps = true,
+        resolveSourceMapLocations = nil,
+        sourceMapPathOverrides = {},
     },
 }
 

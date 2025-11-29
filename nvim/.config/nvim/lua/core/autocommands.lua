@@ -11,7 +11,7 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- disable folding
-local nofold = vim.api.nvim_create_augroup("nofold_files", { clear = true })
+local nofold = api.nvim_create_augroup("nofold_files", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
     group = nofold,

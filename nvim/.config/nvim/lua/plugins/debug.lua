@@ -4,35 +4,35 @@ return {
         "mfussenegger/nvim-dap",
         keys = {
             {
-                "<F5>",
+                "<leader>dc",
                 function()
                     require("dap").continue()
                 end,
                 desc = "DAP: Continue",
             },
             {
-                "<F10>",
+                "<leader>dv",
                 function()
                     require("dap").step_over()
                 end,
                 desc = "DAP: Step Over",
             },
             {
-                "<F11>",
+                "<leader>di",
                 function()
                     require("dap").step_into()
                 end,
                 desc = "DAP: Step Into",
             },
             {
-                "<F12>",
+                "<leader>du",
                 function()
                     require("dap").step_out()
                 end,
                 desc = "DAP: Step Out",
             },
             {
-                "<Leader>b",
+                "<Leader>db",
                 function()
                     require("dap").toggle_breakpoint()
                 end,
