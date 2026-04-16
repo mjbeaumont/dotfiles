@@ -11,7 +11,7 @@ windows:
       layout: main-horizontal
       panes: 
         - start_database: 
-          - cd ~/Code/TFD/beethoven && docker compose up product-api tax-rate-api pricing-api dynamodb dynamodb-admin
+          - cd ~/Code/TFD/beethoven/website/website && docker compose up product-api tax-rate-api pricing-api dynamodb dynamodb-admin production-recommendation-api
         - start_server: 
           -  pnpm --filter leads-tosa develop
   - code: nvim 
