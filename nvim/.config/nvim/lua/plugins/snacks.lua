@@ -74,6 +74,7 @@ return {
             end,
             desc = "Recent",
         },
+    { "<Leader>fe", function() Snacks.picker.registers() end, desc = "Registers"},
         {
             "<Leader>fd",
             function()
