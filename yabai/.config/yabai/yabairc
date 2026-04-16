@@ -33,6 +33,10 @@ yabai -m config right_padding                0
 
 reset-yabai-spaces
 
+yabai -m signal --add event=display_added action="reset-yabai-spaces"
+yabai -m signal --add event=display_removed action="reset-yabai-spaces"
+yabai -m signal --add event=system_woke action="reset-yabai-spaces"
+
 # window rules
 yabai -m rule --add app="^kitty" space=4 
 yabai -m rule --add app="^Google Chrome" space=3

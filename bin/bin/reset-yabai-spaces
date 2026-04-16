@@ -32,3 +32,17 @@ setup_space 2 idle
 setup_space 3 web
 setup_space 4 code
 
+#
+# re-sort windows to their assigned spaces
+#
+yabai -m query --windows | jq -r '.[] | "\(.id) \(.app)"' | while read id app; do
+  case "$app" in
+    kitty)           yabai -m window "$id" --space 4 2>/dev/null ;;
+    "Google Chrome")  yabai -m window "$id" --space 3 2>/dev/null ;;
+    Slack)           yabai -m window "$id" --space 1 2>/dev/null ;;
+    Spotify)         yabai -m window "$id" --space 1 2>/dev/null ;;
+    Messages)        yabai -m window "$id" --space 1 2>/dev/null ;;
+    zoom.us)         yabai -m window "$id" --space 1 2>/dev/null ;;
+  esac
+done
+
