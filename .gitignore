@@ -1,3 +1,4 @@
 packer_compiled.lua
 private/
 .DS_Store
+**/karabiner/automatic_backups
