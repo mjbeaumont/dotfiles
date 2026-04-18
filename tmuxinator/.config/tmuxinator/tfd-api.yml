@@ -2,6 +2,7 @@ name: tfd-api
 root: ~/Code/TFD/api
 
 pre_window: nvm use
+enable_pane_titles: true
 
 on_project_stop:
   - docker-compose down postgres

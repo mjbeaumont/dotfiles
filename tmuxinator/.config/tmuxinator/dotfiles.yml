@@ -1,5 +1,18 @@
 name: dotfiles
-root: ~/.dotfiles
+root: ~/
+
+enable_pane_titles: true
 
 windows:
-  - code: nvim 
+  - dotfiles:
+    root: ~/dotfiles/
+    layout: main_vertical
+    panes: 
+      - nvim
+      - claude
+  - ha:
+    root: ~/Code/ha-config/
+    layout: main_vertical
+    panes: 
+      - nvim
+      - claude
