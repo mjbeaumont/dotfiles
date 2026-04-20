@@ -45,6 +45,7 @@ map("n", "<C-Right>", ":vertical resize +2<CR>")
 
 map("n", "<C-n>", ":lua ToggleNumber()<CR>")
 map("n", "yp", ":let @*=expand('%')<CR>")
+map("n", "yP", ":let @*=expand('%:p')<CR>")
 
 map("n", "<Leader>w", ":Bdelete<CR>")
 map("n", "<Leader>kw", ":bufdo :Bdelete<CR>")

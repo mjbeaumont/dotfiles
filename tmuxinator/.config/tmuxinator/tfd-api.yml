@@ -1,5 +1,5 @@
 name: tfd-api
-root: ~/Code/TFD/api
+root: ~/Code/TFD/services/legacy/core-api
 
 pre_window: nvm use
 enable_pane_titles: true
@@ -19,4 +19,4 @@ windows:
   - code: nvm use && nvim
   - terminal: 
     -
- 
+  - agent: nvm use && claude

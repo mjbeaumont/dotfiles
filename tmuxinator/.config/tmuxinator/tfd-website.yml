@@ -8,3 +8,4 @@ windows:
   - code: nvim 
   - terminal:
     -
+  - agent: claude
