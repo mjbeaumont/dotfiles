@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Memory purge script for macOS
+# Cleans up common memory hogs: Docker, node processes, system caches
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+DIM='\033[2m'
+RESET='\033[0m'
+
+print_header() { printf "\n${GREEN}==> %s${RESET}\n" "$1"; }
+print_info()   { printf "  ${DIM}%s${RESET}\n" "$1"; }
+print_warn()   { printf "  ${YELLOW}%s${RESET}\n" "$1"; }
+
+swap_before=$(sysctl -n vm.swapusage | awk '{print $7}' | tr -d 'M')
+mem_before=$(memory_pressure 2>/dev/null | grep "System-wide memory free percentage" | awk '{print $NF}')
+
+printf "${GREEN}Memory purge starting${RESET}\n"
+printf "  Swap used: ${RED}%.1f GB${RESET}  |  Free: %s\n" "$(echo "$swap_before / 1024" | bc -l)" "$mem_before"
+
+# ── 1. Docker cleanup ──────────────────────────────────────────────
+if command -v docker &>/dev/null && docker info &>/dev/null; then
+  print_header "Docker"
+
+  running=$(docker ps -q 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$running" -eq 0 ]; then
+    print_info "No running containers"
+  else
+    print_warn "$running container(s) running — skipping container cleanup"
+  fi
+
+  # Prune stopped containers, dangling images, unused networks, build cache
+  print_info "Pruning (this can be slow on first run with high swap)..."
+  docker system prune -f --volumes 2>/dev/null || true
+
+  # Remove untagged/dangling images
+  dangling=$(docker images -f "dangling=true" -q 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$dangling" -gt 0 ]; then
+    print_info "Removing $dangling dangling image(s)..."
+    docker images -f "dangling=true" -q 2>/dev/null | xargs docker rmi -f 2>/dev/null || true
+  fi
+
+  # Report remaining disk usage
+  print_info "Docker disk usage after cleanup:"
+  docker system df 2>/dev/null | while IFS= read -r line; do print_info "  $line"; done
+elif command -v docker &>/dev/null; then
+  print_header "Docker"
+  print_info "Docker daemon not running — skipping"
+else
+  print_info "Docker not installed — skipping"
+fi
+
+# ── 2. Orphaned node processes ──────────────────────────────────────
+print_header "Node processes"
+
+# Kill orphaned node processes (watchers, old dev servers, leaked children)
+# Preserve: actively managed nodemon sessions, LSP servers
+node_pids=$(ps -eo pid,ppid,command | grep '[n]ode' | while read -r pid ppid cmd; do
+  # Skip LSP servers (neovim/editor integrations)
+  echo "$cmd" | grep -qiE 'language-server|lsp|mason' && continue
+  # Skip processes with a live nodemon parent (part of active dev session)
+  echo "$cmd" | grep -q 'nodemon' && continue
+  # Skip pnpm orchestrators (they manage other processes)
+  echo "$cmd" | grep -q 'pnpm' && continue
+  # Everything else: orphaned watchers, leaked dev servers, etc.
+  echo "$pid"
+done)
+
+if [ -n "$node_pids" ]; then
+  count=$(echo "$node_pids" | wc -l | tr -d ' ')
+  print_info "Found $count orphaned node process(es)"
+  for pid in $node_pids; do
+    cmd=$(ps -p "$pid" -o command= 2>/dev/null | head -c 80)
+    print_info "  Killing $pid: $cmd"
+    kill "$pid" 2>/dev/null || true
+  done
+else
+  print_info "No orphaned node processes found"
+fi
+
+# ── 3. pnpm store cleanup ──────────────────────────────────────────
+if command -v pnpm &>/dev/null; then
+  print_header "pnpm store"
+  print_info "Pruning unreferenced packages..."
+  pnpm store prune 2>/dev/null || true
+fi
+
+# ── 4. macOS memory purge (optional, needs sudo) ──────────────────
+# Note: `purge` only flushes disk caches — it doesn't reclaim swap or
+# free real memory. The steps above do the heavy lifting. This is a
+# nice-to-have if you happen to have sudo available (e.g. after JIT).
+if sudo -n true 2>/dev/null; then
+  print_header "macOS disk cache purge"
+  sudo purge
+  print_info "Purge complete"
+else
+  print_info "Skipping disk cache purge (no sudo) — this is fine, it's low impact"
+fi
+
+# ── 5. Summary ──────────────────────────────────────────────────────
+sleep 2  # let system settle
+swap_after=$(sysctl -n vm.swapusage | awk '{print $7}' | tr -d 'M')
+mem_after=$(memory_pressure 2>/dev/null | grep "System-wide memory free percentage" | awk '{print $NF}')
+
+print_header "Results"
+printf "  Swap:   ${RED}%.1f GB${RESET} -> ${GREEN}%.1f GB${RESET}\n" \
+  "$(echo "$swap_before / 1024" | bc -l)" \
+  "$(echo "$swap_after / 1024" | bc -l)"
+printf "  Free:   %s -> %s\n" "$mem_before" "$mem_after"
+
+# Recommendations if swap is still high
+swap_after_int=${swap_after%.*}
+if [ "${swap_after_int:-0}" -gt 4096 ]; then
+  print_header "Still high — consider"
+  print_warn "1. Reduce Docker VM memory: Docker Desktop > Settings > Resources (try 4 GB)"
+  print_warn "2. Close Chrome tabs or use a tab suspender"
+  print_warn "3. Quit Slack/Spotify if not needed"
+  print_warn "4. Restart Docker Desktop to release its VM reservation"
+fi
