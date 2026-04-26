@@ -16,6 +16,11 @@ At TFD I work across the full stack but spend more time on architecture, rollout
 strategy, and cross-team alignment than writing code. I own analytics/pixels,
 privacy compliance, and experimentation infrastructure.
 
+## Domains & Expertise
+
+See [domains.md](domains.md) for my calibrated expertise breakdown per domain —
+use to tune explanation depth and know where to scaffold vs. where to be terse.
+
 ## How I Work
 
 - **Understand first, code second.** I want to know the current state before
