@@ -1,14 +1,14 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
+  },
   "model": "opus",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
   "promptSuggestionEnabled": false,
-  "env": {
-    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
-  }
+  "editorMode": "vim"
 }

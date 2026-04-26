@@ -20,3 +20,7 @@ Match the scope the user requested — no extra assertions, unnecessary guards, 
 ## Never Commit to Main
 
 Always create a feature branch. Never commit directly to main. When multiple PRs are needed, confirm the branching strategy before starting.
+
+## Don't Chase Rabbit Holes
+
+When a fix fails and the next attempt is another guess about how the tool or system behaves, stop. Don't push another speculative attempt. Pause and ask: are we using the right approach, is there a simpler architecture, or should we verify behavior in a sandbox (e.g., a REPL, Developer Tools, a tiny test) before writing more code? Repeated guess-fix-guess cycles waste time. After the second failed attempt at fixing the same area, surface this explicitly and propose a reset or simpler path before continuing — especially for niche tool intersections where general intuition often misleads.
