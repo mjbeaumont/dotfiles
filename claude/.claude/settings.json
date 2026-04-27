@@ -6,7 +6,16 @@
   "model": "opus",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "tfd-eng@tfd-engineering": true
+  },
+  "extraKnownMarketplaces": {
+    "tfd-engineering": {
+      "source": {
+        "source": "github",
+        "repo": "farmersdog/engineering-skills-agents"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
