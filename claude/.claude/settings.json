@@ -3,7 +3,7 @@
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
     "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
   },
-  "model": "opus",
+  "model": "sonnet",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
@@ -19,5 +19,19 @@
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "$HOME/.claude/hooks/inject-pr-voice.sh" }
+        ]
+      }
+    ]
+  }
 }
