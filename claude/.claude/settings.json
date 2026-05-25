@@ -21,7 +21,6 @@
   "promptSuggestionEnabled": false,
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true,
-<<<<<<< Updated upstream
   "permissions": {
     "defaultMode": "auto"
   },
@@ -31,8 +30,9 @@
         "matcher": "Bash",
         "hooks": [
           { "type": "command", "command": "$HOME/.claude/hooks/inject-pr-voice.sh" }
-=======
-  "hooks": {
+        ]
+      }
+    ],
     "SessionStart": [
       {
         "matcher": "*",
@@ -63,7 +63,6 @@
             "type": "command",
             "command": "W=$(tmux display-message -p '#W' 2>/dev/null | sed 's|^cc/||'); osascript -e \"display notification \\\"${W:-input}\\\" with title \\\"Claude · needs you\\\" sound name \\\"Glass\\\"\""
           }
->>>>>>> Stashed changes
         ]
       }
     ]
