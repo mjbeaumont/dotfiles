@@ -21,6 +21,7 @@
   "promptSuggestionEnabled": false,
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true,
+<<<<<<< Updated upstream
   "permissions": {
     "defaultMode": "auto"
   },
@@ -30,6 +31,39 @@
         "matcher": "Bash",
         "hooks": [
           { "type": "command", "command": "$HOME/.claude/hooks/inject-pr-voice.sh" }
+=======
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$TMUX\" ] && CWD=$(jq -r '.cwd // \"\"' | xargs basename 2>/dev/null) && [ -n \"$CWD\" ] && { N=$(tmux list-windows -F '#W' | grep -E \"^cc/${CWD}[0-9]+$\" | sed -E \"s|^cc/${CWD}||\" | sort -n | tail -1); tmux rename-window \"cc/${CWD}$((${N:-0} + 1))\"; }"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "W=$(tmux display-message -p '#W' 2>/dev/null | sed 's|^cc/||'); osascript -e \"display notification \\\"${W:-done}\\\" with title \\\"Claude · done\\\" sound name \\\"Tink\\\"\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "W=$(tmux display-message -p '#W' 2>/dev/null | sed 's|^cc/||'); osascript -e \"display notification \\\"${W:-input}\\\" with title \\\"Claude · needs you\\\" sound name \\\"Glass\\\"\""
+          }
+>>>>>>> Stashed changes
         ]
       }
     ]
