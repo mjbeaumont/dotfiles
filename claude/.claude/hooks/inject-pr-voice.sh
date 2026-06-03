@@ -10,7 +10,10 @@ if ! echo "$COMMAND" | grep -qE '(^|&&|;|\|)\s*gh\s+pr\s+(create|edit)'; then
   exit 0
 fi
 
-cat <<'EOF'
+# PreToolUse hooks must emit JSON to inject context into the model; plain
+# stdout on exit 0 is shown to the user only. jq -Rs slurps the heredoc into a
+# JSON string; additionalContext is non-blocking, so the gh command still runs.
+jq -Rs '{hookSpecificOutput: {hookEventName: "PreToolUse", additionalContext: .}}' <<'EOF'
 PR DESCRIPTION VOICE — non-negotiable defaults:
 
 The code shows WHAT changed. Your job is to give the reviewer the WHY.

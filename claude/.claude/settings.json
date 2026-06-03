@@ -1,35 +1,22 @@
 {
   "env": {
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": 250000
   },
-  "model": "sonnet",
-  "enabledPlugins": {
-    "clangd-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "tfd-eng@tfd-engineering": true
-  },
-  "extraKnownMarketplaces": {
-    "tfd-engineering": {
-      "source": {
-        "source": "github",
-        "repo": "farmersdog/engineering-skills-agents"
-      }
-    }
-  },
-  "alwaysThinkingEnabled": true,
-  "promptSuggestionEnabled": false,
-  "editorMode": "vim",
-  "skipAutoPermissionPrompt": true,
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
         "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "$HOME/.claude/hooks/inject-pr-voice.sh" }
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/inject-pr-voice.sh"
+          }
         ]
       }
     ],
@@ -66,5 +53,22 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "tfd-eng@tfd-engineering": true
+  },
+  "extraKnownMarketplaces": {
+    "tfd-engineering": {
+      "source": {
+        "source": "github",
+        "repo": "farmersdog/engineering-skills-agents"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "promptSuggestionEnabled": false,
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true
 }
