@@ -36,6 +36,7 @@ apps=(
    tmuxinator
    tree
    tree-sitter
+   tree-sitter-cli
    webp
    wget
    koekeishiya/formulae/yabai

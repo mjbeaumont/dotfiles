@@ -1,90 +1,101 @@
+local ensure_installed = {
+    "bash",
+    "dockerfile",
+    "graphql",
+    "html",
+    "http",
+    "javascript",
+    "jsdoc",
+    "json",
+    "json5",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "php",
+    "prisma",
+    "python",
+    "regex",
+    "rust",
+    "scss",
+    "todotxt",
+    "tsx",
+    "typescript",
+    "vim",
+    "vue",
+    "yaml",
+}
+
+-- Treesitter indent is still experimental and yaml is the worst offender.
+local indent_disabled = { yaml = true }
+
 return {
-    -- Core treesitter
+    -- Core treesitter. The `main` branch ships parsers and queries only —
+    -- highlight and indent are Neovim features this config wires per filetype.
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
         build = ":TSUpdate",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "RRethy/nvim-treesitter-textsubjects",
-        },
         config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "bash",
-                    "dockerfile",
-                    "graphql",
-                    "html",
-                    "http",
-                    "javascript",
-                    "jsdoc",
-                    "json",
-                    "json5",
-                    "lua",
-                    "php",
-                    "prisma",
-                    "python",
-                    "regex",
-                    "rust",
-                    "scss",
-                    "todotxt",
-                    "tsx",
-                    "typescript",
-                    "vim",
-                    "vue",
-                    "yaml",
+            local ts = require("nvim-treesitter")
+
+            ts.install(ensure_installed)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                group = vim.api.nvim_create_augroup("treesitter_start", { clear = true }),
+                callback = function(args)
+                    local lang = vim.treesitter.language.get_lang(args.match) or args.match
+
+                    -- Throws when the parser isn't installed. Install it so the next
+                    -- open of this filetype is highlighted — replaces `auto_install`.
+                    if not pcall(vim.treesitter.start, args.buf, lang) then
+                        if vim.list_contains(ts.get_available(), lang) then
+                            ts.install(lang)
+                        end
+
+                        return
+                    end
+
+                    if not indent_disabled[args.match] then
+                        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    end
+                end,
+            })
+
+            vim.keymap.set("n", "<Leader>hl", ":Inspect<CR>", { desc = "Show Highlight Under Cursor" })
+        end,
+    },
+
+    -- Syntax-aware text objects
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("nvim-treesitter-textobjects").setup({
+                select = {
+                    lookahead = true,
                 },
-                auto_install = true,
-                sync_install = false,
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = { enable = true, disable = { "yaml" } },
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
-                        },
-                    },
-                    move = {
-                        enable = true,
-                        set_jumps = true,
-                        goto_next_start = {
-                            ["]m"] = "@function.outer",
-                            ["]]"] = "@class.outer",
-                        },
-                        goto_next_end = {
-                            ["]M"] = "@function.outer",
-                            ["]["] = "@class.outer",
-                        },
-                        goto_previous_start = {
-                            ["[m"] = "@function.outer",
-                            ["[["] = "@class.outer",
-                        },
-                        goto_previous_end = {
-                            ["[M"] = "@function.outer",
-                            ["[]"] = "@class.outer",
-                        },
-                    },
-                },
-                textsubjects = {
-                    enable = true,
-                    prev_selection = ",",
-                    keymaps = {
-                        ["."] = "textsubjects-smart",
-                        [";"] = "textsubjects-container-outer",
-                        ["i;"] = "textsubjects-container-inner",
-                    },
+                move = {
+                    set_jumps = true,
                 },
             })
         end,
+        -- stylua: ignore
         keys = {
-            { "<Leader>hl", ":Inspect<CR>", desc = "Show Highlight Under Cursor" },
+            { "af", mode = { "x", "o" }, function() require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects") end, desc = "Select Outer Function" },
+            { "if", mode = { "x", "o" }, function() require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects") end, desc = "Select Inner Function" },
+            { "ac", mode = { "x", "o" }, function() require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects") end, desc = "Select Outer Class" },
+            { "ic", mode = { "x", "o" }, function() require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects") end, desc = "Select Inner Class" },
+
+            { "]m", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects") end, desc = "Next Function Start" },
+            { "]]", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects") end, desc = "Next Class Start" },
+            { "]M", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects") end, desc = "Next Function End" },
+            { "][", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects") end, desc = "Next Class End" },
+            { "[m", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects") end, desc = "Previous Function Start" },
+            { "[[", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects") end, desc = "Previous Class Start" },
+            { "[M", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects") end, desc = "Previous Function End" },
+            { "[]", mode = { "n", "x", "o" }, function() require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects") end, desc = "Previous Class End" },
         },
     },
 
@@ -93,14 +104,6 @@ return {
         "nvim-treesitter/nvim-treesitter-context",
         opts = {
             max_lines = 3,
-        },
-    },
-
-    -- Context-aware comments (e.g., JSX vs JS in TSX files)
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        opts = {
-            enable_autocmd = false,
         },
     },
 
@@ -114,13 +117,6 @@ return {
             keymaps = {
                 useDefaults = true,
             },
-        },
-    },
-    {
-        "mfussenegger/nvim-treehopper",
-        keys = {
-            { "m", [[:<C-u>lua require('tsht').nodes()<CR>]], mode = "o", silent = true },
-            { "m", [[:lua require('tsht').nodes()<CR>]], mode = "x", silent = true },
         },
     },
 }
