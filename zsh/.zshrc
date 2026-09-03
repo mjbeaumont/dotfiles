@@ -52,3 +52,4 @@ esac
 # pnpm end
 
 [ -f ~/.config/.private_env ] && source ~/.config/.private_env
+export PATH="$HOME/.local/bin:$PATH"
