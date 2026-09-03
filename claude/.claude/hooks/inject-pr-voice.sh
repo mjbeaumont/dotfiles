@@ -1,20 +1,40 @@
 #!/usr/bin/env bash
 # User-level PreToolUse hook: fires on `gh pr create` or `gh pr edit` across
 # all repos. Layers on top of any repo-specific PR hooks (e.g. services
-# injects the template). This hook injects VOICE/TONE guidance only.
+# injects the template). This hook enforces VOICE/TONE on the PR body.
+#
+# WHY blocking instead of additionalContext: a non-blocking hook injects its
+# text into the tool *result*, i.e. after the command already ran with the
+# `--body` baked in — too late to shape the PR it fired on. So the first time
+# we see a `gh pr create|edit` in a session we DENY, handing the guidance back
+# as the denial reason. That bounces control to the model before the PR is
+# created, so it recomposes the body with the guidance in hand and retries.
+#
+# Avoiding an infinite deny loop: a per-session flag file marks "guidance
+# already shown". The retry sees the flag and is allowed through, then clears
+# it so the next PR in the same session re-triggers the reminder.
 
 INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
+SESSION=$(echo "$INPUT" | jq -r '.session_id // "nosession"')
 
 if ! echo "$COMMAND" | grep -qE '(^|&&|;|\|)\s*gh\s+pr\s+(create|edit)'; then
   exit 0
 fi
 
-# PreToolUse hooks must emit JSON to inject context into the model; plain
-# stdout on exit 0 is shown to the user only. jq -Rs slurps the heredoc into a
-# JSON string; additionalContext is non-blocking, so the gh command still runs.
-jq -Rs '{hookSpecificOutput: {hookEventName: "PreToolUse", additionalContext: .}}' <<'EOF'
-PR DESCRIPTION VOICE — non-negotiable defaults:
+FLAG="${TMPDIR:-/tmp}/claude-pr-voice-ack-${SESSION}"
+
+# Second pass: the model has the guidance and is retrying. Allow it through and
+# clear the flag so a later PR in this session gets the reminder again.
+if [ -f "$FLAG" ]; then
+  rm -f "$FLAG"
+  exit 0
+fi
+
+# First pass: block, and hand the guidance back as the denial reason.
+touch "$FLAG"
+jq -Rs '{hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: .}}' <<'EOF'
+PR DESCRIPTION VOICE — non-negotiable defaults. Revise the --body to match these, then re-run the command:
 
 The code shows WHAT changed. Your job is to give the reviewer the WHY.
 The HOW only matters when something is genuinely odd — and if it's not
@@ -33,6 +53,9 @@ STRIP these patterns (they are tells that you've drifted into spec-writing):
     safety nets — that's a code detail, not a design choice worth surfacing)
   - Cross-PR pattern references ("uses the X pattern from #N")
   - Enumerating every interesting design decision — pick the 2-3 that actually matter
+  - Hard-wrapped body text (manual newlines mid-paragraph) — write each paragraph
+    as a single continuous line and let GitHub handle the wrapping; forced wraps
+    render as ragged breaks on GitHub
 
 FOR LARGE PRs, add a "way in" — orient the reviewer to the SHAPE of the diff
 so it's not intimidating. Examples of what this sounds like:
